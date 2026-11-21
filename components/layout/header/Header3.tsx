@@ -28,7 +28,7 @@ export default function Header3({ scroll, handleMobileMenu, handlePopup, handleS
                                 <div className="text">
                                     <p>
                                         Join Now,
-                                        <Link href="#">
+                                        <Link href="/login">
                                             Login - or - Register
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -42,7 +42,7 @@ export default function Header3({ scroll, handleMobileMenu, handlePopup, handleS
                                 <div className="text">
                                     <p>
                                         Start Trading Journey,
-                                        <Link href="#">
+                                        <Link href="/register">
                                             Open an Account
                                             <i className="icon-right-arrow"></i>
                                         </Link>

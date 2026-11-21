@@ -15,6 +15,9 @@ export async function POST(request: NextRequest) {
     if (!email || email.length > 254 || !password || password.length > 128) {
       return NextResponse.json({ error: "Email or password is incorrect." }, { status: 401 });
     }
+    if (!process.env.DATABASE_URL || !process.env.AUTH_SECRET || process.env.AUTH_SECRET.length < 32) {
+      return NextResponse.json({ error: "Authentication is not configured on this deployment." }, { status: 503, headers: { "Cache-Control": "no-store" } });
+    }
     const rows = await getSql()`
       SELECT id, email, full_name, role, status, password_hash
       FROM app_users WHERE lower(email) = ${email} LIMIT 1

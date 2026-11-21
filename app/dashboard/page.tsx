@@ -1,28 +1,136 @@
-import { redirect } from "next/navigation";
-import { getCurrentUser } from "@/lib/auth";
-import DashboardSignOut from "@/components/auth/DashboardSignOut";
+import Link from "next/link";
+import PageHeader, { EmptyState, StatusBadge } from "@/components/dashboard/PageHeader";
+import styles from "@/components/dashboard/dashboard.module.css";
+import { requireUser } from "@/lib/auth";
+import { formatDate, formatMoney, getAccounts, getSummary, getTransactions } from "@/lib/dashboard";
 
 export const dynamic = "force-dynamic";
 
-export default async function DashboardPage() {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login");
+export default async function DashboardOverviewPage() {
+  const user = await requireUser();
+
+  const [summary, accounts, transactions] = await Promise.all([
+    getSummary(user.id),
+    getAccounts(user.id),
+    getTransactions(user.id, 5),
+  ]);
+
+  const portfolioLabel = summary.totalsByCurrency.length
+    ? summary.totalsByCurrency.map((row) => formatMoney(row.total, row.currency)).join(" · ")
+    : "—";
+  const firstName = user.full_name.split(" ")[0] ?? user.full_name;
+
   return (
-    <main style={{minHeight:"100vh",background:"#f4f7fb",padding:"clamp(20px,5vw,56px)",color:"#17233b"}}>
-      <section style={{maxWidth:900,margin:"0 auto"}}>
-        <header style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,flexWrap:"wrap",marginBottom:36}}>
-          <a href="/" style={{fontSize:24,fontWeight:800,color:"#153c75",textDecoration:"none"}}>LucidInvest</a>
-          <DashboardSignOut />
-        </header>
-        <p style={{fontSize:12,letterSpacing:2,fontWeight:800,color:"#426bb0"}}>CUSTOMER OVERVIEW</p>
-        <h1 style={{fontSize:"clamp(28px,5vw,40px)",margin:"8px 0"}}>Welcome, {user.full_name}</h1>
-        <p style={{color:"#667085"}}>You are signed in as {user.email}.</p>
-        <div style={{marginTop:28,padding:24,borderRadius:16,background:"#fff",border:"1px solid #e2e8f0"}}>
-          <h2 style={{marginTop:0}}>Account status</h2>
-          <p>Your login session is active. Investment and money-movement features remain unavailable until they have been separately reviewed and enabled.</p>
-          <p style={{fontSize:13,color:"#667085"}}>Role: {user.role} · Account: {user.status}</p>
+    <>
+      <PageHeader
+        eyebrow="Customer overview"
+        title={`Welcome, ${firstName}`}
+        lead="Your accounts, investments and recent activity in one place."
+      />
+
+      <section className={styles.stats} aria-label="Summary">
+        <div className={styles.stat}>
+          <p className={styles.statLabel}>Accounts</p>
+          <p className={styles.statValue}>{summary.accountCount}</p>
+          <p className={styles.statHint}>{summary.activeAccounts} active</p>
+        </div>
+        <div className={styles.stat}>
+          <p className={styles.statLabel}>Portfolio principal</p>
+          <p className={styles.statValue}>{portfolioLabel}</p>
+          <p className={styles.statHint}>{summary.investmentCount} open investment{summary.investmentCount === 1 ? "" : "s"}</p>
+        </div>
+        <div className={styles.stat}>
+          <p className={styles.statLabel}>Account status</p>
+          <p className={styles.statValue} style={{ textTransform: "capitalize" }}>{user.status}</p>
+          <p className={styles.statHint}>Role: {user.role}</p>
+        </div>
+        <div className={styles.stat}>
+          <p className={styles.statLabel}>Active sessions</p>
+          <p className={styles.statValue}>{summary.openSessions}</p>
+          <p className={styles.statHint}>
+            <Link href="/dashboard/security" className={styles.panelLink}>Manage sessions</Link>
+          </p>
         </div>
       </section>
-    </main>
+
+      <div className={styles.split}>
+        <section className={styles.panel} aria-labelledby="recent-activity">
+          <div className={styles.panelHead}>
+            <h2 id="recent-activity" className={styles.panelTitle}>Recent activity</h2>
+            <Link href="/dashboard/transactions" className={styles.panelLink}>All transactions</Link>
+          </div>
+          {transactions.length === 0 ? (
+            <EmptyState
+              title="No transactions yet"
+              text="Posted ledger entries for your accounts will appear here once activity has been recorded."
+            />
+          ) : (
+            <div className={styles.tableWrap}>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Description</th>
+                    <th scope="col" className={styles.num}>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {transactions.map((entry) => (
+                    <tr key={entry.id}>
+                      <td>{formatDate(entry.created_at)}</td>
+                      <td>
+                        <div>{entry.description}</div>
+                        <div className={styles.muted}>{entry.account_number ?? "Account"}</div>
+                      </td>
+                      <td className={styles.num}>{formatMoney(entry.amount, entry.currency)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+
+        <section className={styles.panel} aria-labelledby="your-accounts">
+          <div className={styles.panelHead}>
+            <h2 id="your-accounts" className={styles.panelTitle}>Your accounts</h2>
+            <Link href="/dashboard/accounts" className={styles.panelLink}>Manage</Link>
+          </div>
+          {accounts.length === 0 ? (
+            <EmptyState
+              title="No accounts open"
+              text="Investment accounts are opened after onboarding review. Talk to our team to get started."
+              action={<Link href="/contact" className={styles.cta}>Contact us</Link>}
+            />
+          ) : (
+            <div className={styles.tableWrap}>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th scope="col">Account</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {accounts.slice(0, 4).map((account) => (
+                    <tr key={account.id}>
+                      <td className={styles.mono}>{account.account_number ?? "Pending"}</td>
+                      <td style={{ textTransform: "capitalize" }}>{account.account_type}</td>
+                      <td><StatusBadge status={account.status} /></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </section>
+      </div>
+
+      <p className={styles.notice}>
+        Deposits, withdrawals, trading and other money-movement features are not enabled on this dashboard. Balances,
+        investments and history shown here are read-only records from your account.
+      </p>
+    </>
   );
 }

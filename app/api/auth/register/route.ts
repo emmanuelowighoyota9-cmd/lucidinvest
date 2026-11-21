@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     if (fullName.length < 2 || fullName.length > 100) return NextResponse.json({ error: "Enter your full name (2–100 characters)." }, { status: 400 });
     if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
     if (password.length < 12 || password.length > 128) return NextResponse.json({ error: "Password must be 12–128 characters." }, { status: 400 });
-    if (!process.env.AUTH_SECRET || process.env.AUTH_SECRET.length < 32) return NextResponse.json({ error: "Authentication is not configured on this deployment." }, { status: 503 });
+    if (!process.env.DATABASE_URL || !process.env.AUTH_SECRET || process.env.AUTH_SECRET.length < 32) return NextResponse.json({ error: "Authentication is not configured on this deployment." }, { status: 503 });
 
     const passwordHash = await hashPassword(password);
     const rows = await getSql()`

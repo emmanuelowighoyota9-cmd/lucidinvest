@@ -43,14 +43,14 @@ export default function Header1({ scroll, handleMobileMenu, handlePopup }: Heade
                                 </div>
                                 <div className="title">
                                     <h3>My Portal</h3>
-                                    <p><Link href="#">Login - or - Register</Link></p>
+                                    <p><Link href="/login">Login - or - Register</Link></p>
                                     <ul className="clearfix">
                                         <li>
                                             <div className="icon1">
                                                 <Image src="/assets/images/icon/icon-login.png" alt="Icon" width={26} height={26} priority />
                                             </div>
                                             <div className="text1">
-                                                <h4><Link href="https://app.lucidglobalinvest.com/login">Login</Link></h4>
+                                                <h4><Link href="/login">Login</Link></h4>
                                                 <p>Enter to Trade</p>
                                             </div>
                                         </li>
@@ -59,7 +59,7 @@ export default function Header1({ scroll, handleMobileMenu, handlePopup }: Heade
                                                 <Image src="/assets/images/icon/icon-register.png" alt="Icon" width={26} height={26} priority />
                                             </div>
                                             <div className="text1">
-                                                <h4><Link href="https://app.lucidglobalinvest.com/register">Register</Link></h4>
+                                                <h4><Link href="/register">Register</Link></h4>
                                                 <p>Start Your Journey</p>
                                             </div>
                                         </li>
@@ -108,7 +108,7 @@ export default function Header1({ scroll, handleMobileMenu, handlePopup }: Heade
                                     <i className="icon-candle"></i>
                                 </div>
                                 <div className="text">
-                                    <Link href="https://app.lucidglobalinvest.com/login">
+                                    <Link href="/login">
                                         Start <br />Trading
                                         <i className="icon-right-arrow"></i>
                                     </Link>

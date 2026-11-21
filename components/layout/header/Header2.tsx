@@ -69,8 +69,29 @@ export default function Header2({ scroll, handleMobileMenu, handlePopup }: Heade
 
                 <div className="main-header-style2__content-bottom-right">
                 
-                  <div className="header-btn-box-style2">
-                    <Link className="btn-one" href="https://app.lucidglobalinvest.com/login">
+                  <div className="header-btn-box-style2" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <span className="d-none d-md-block">
+                      <Link
+                        href="/register"
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          height: 50,
+                          padding: "0 22px",
+                          border: "1px solid var(--thm-primary-color)",
+                          borderRadius: 25,
+                          background: "var(--thm-white)",
+                          color: "var(--thm-black)",
+                          fontFamily: "var(--thm-font-2)",
+                          fontWeight: 600,
+                          textDecoration: "none",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        Register
+                      </Link>
+                    </span>
+                    <Link className="btn-one" href="/login">
                       <span className="txt">Login</span>
                       <i className="icon-right-arrow"></i>
                     </Link>

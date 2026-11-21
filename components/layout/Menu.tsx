@@ -12,10 +12,6 @@ export default function Menu() {
   // Checks if a parent dropdown should be active
   const isDropdownActive = (paths: string[]) => paths.some((path) => pathname.startsWith(path));
 
-  const toPortal = (path: "/login" | "/register") => {
-    return `https://app.lucidglobalinvest.com${path}`;
-  };
-
   const isCurrentOrPrefix = (paths: string[]) => {
     return paths.some((p) => pathname === p || pathname.startsWith(p));
   };

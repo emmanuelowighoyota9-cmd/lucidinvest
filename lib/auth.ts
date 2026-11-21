@@ -2,10 +2,19 @@ import "server-only";
 import { createHash, createHmac, randomBytes, scrypt as scryptCallback, timingSafeEqual } from "node:crypto";
 import { promisify } from "node:util";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { getSql } from "@/lib/db";
+import {
+  SESSION_COOKIE_NAME,
+  formatSessionCookie,
+  isExpired,
+  parseSessionCookie,
+  sessionPayload,
+  timingSafeHexEqual,
+} from "@/lib/session-cookie";
 
 const scrypt = promisify(scryptCallback);
-const COOKIE_NAME = "lucidinvest_session";
+const COOKIE_NAME = SESSION_COOKIE_NAME;
 const SESSION_DAYS = 7;
 const SCRYPT_KEY_LENGTH = 64;
 
@@ -33,16 +42,17 @@ function tokenDigest(token: string) {
   return createHash("sha256").update(token).digest("hex");
 }
 
-function signature(token: string) {
-  return createHmac("sha256", authSecret()).update(token).digest("hex");
+function signature(token: string, expiresAtMs: number) {
+  return createHmac("sha256", authSecret()).update(sessionPayload(token, expiresAtMs)).digest("hex");
 }
 
 export async function createSession(userId: string) {
   const token = randomBytes(32).toString("base64url");
   const expiresAt = new Date(Date.now() + SESSION_DAYS * 24 * 60 * 60 * 1000);
+  const expiresAtMs = expiresAt.getTime();
   await getSql()`INSERT INTO auth_sessions (user_id, token_hash, expires_at) VALUES (${userId}, ${tokenDigest(token)}, ${expiresAt.toISOString()})`;
   const jar = await cookies();
-  jar.set(COOKIE_NAME, `${token}.${signature(token)}`, {
+  jar.set(COOKIE_NAME, formatSessionCookie(token, expiresAtMs, signature(token, expiresAtMs)), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
@@ -51,21 +61,28 @@ export async function createSession(userId: string) {
   });
 }
 
-export async function getCurrentUser() {
+/** Returns the session token only when the cookie is signed and still within its expiry. */
+async function readSessionToken() {
   const jar = await cookies();
-  const value = jar.get(COOKIE_NAME)?.value;
-  if (!value) return null;
-  const splitAt = value.lastIndexOf(".");
-  if (splitAt < 1) return null;
-  const token = value.slice(0, splitAt);
-  const suppliedSignature = value.slice(splitAt + 1);
-  let expectedSignature: string;
-  try { expectedSignature = signature(token); } catch { return null; }
-  const supplied = Buffer.from(suppliedSignature, "hex");
-  const expected = Buffer.from(expectedSignature, "hex");
-  if (supplied.length !== expected.length || !timingSafeEqual(supplied, expected)) return null;
+  const parsed = parseSessionCookie(jar.get(COOKIE_NAME)?.value);
+  if (!parsed || isExpired(parsed)) return null;
+  try {
+    if (!timingSafeHexEqual(signature(parsed.token, parsed.expiresAtMs), parsed.signature)) return null;
+  } catch {
+    return null;
+  }
+  return parsed.token;
+}
 
-  const digest = tokenDigest(token);
+export async function getCurrentSessionDigest() {
+  const token = await readSessionToken();
+  return token ? tokenDigest(token) : null;
+}
+
+export async function getCurrentUser() {
+  const digest = await getCurrentSessionDigest();
+  if (!digest) return null;
+
   const rows = await getSql()`
     SELECT u.id, u.email, u.full_name, u.role, u.status
     FROM auth_sessions s
@@ -80,20 +97,17 @@ export async function getCurrentUser() {
 }
 
 export async function destroySession() {
+  try {
+    const digest = await getCurrentSessionDigest();
+    if (digest) await getSql()`DELETE FROM auth_sessions WHERE token_hash = ${digest}`;
+  } catch { /* Still clear the browser cookie if server configuration is incomplete. */ }
   const jar = await cookies();
-  const value = jar.get(COOKIE_NAME)?.value;
-  if (value) {
-    const splitAt = value.lastIndexOf(".");
-    if (splitAt > 0) {
-      const token = value.slice(0, splitAt);
-      try {
-        const expected = Buffer.from(signature(token), "hex");
-        const supplied = Buffer.from(value.slice(splitAt + 1), "hex");
-        if (expected.length === supplied.length && timingSafeEqual(expected, supplied)) {
-          await getSql()`DELETE FROM auth_sessions WHERE token_hash = ${tokenDigest(token)}`;
-        }
-      } catch { /* Still clear the browser cookie if server configuration is incomplete. */ }
-    }
-  }
   jar.set(COOKIE_NAME, "", { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax", path: "/", expires: new Date(0) });
+}
+
+/** For pages that cannot render without a signed-in customer. */
+export async function requireUser() {
+  const user = await getCurrentUser();
+  if (!user) redirect("/login");
+  return user;
 }

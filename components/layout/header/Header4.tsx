@@ -68,7 +68,7 @@ export default function Header4({ scroll, handleMobileMenu }: Header4Props) {
                                                 <Image src="/assets/images/icon/icon-login.png" alt="Icon" width={26} height={26} priority />
                                             </div>
                                             <div className="text1">
-                                                <h4><Link href="https://app.lucidglobalinvest.com/login">Login</Link></h4>
+                                                <h4><Link href="/login">Login</Link></h4>
                                                 <p>Enter to Trade</p>
                                             </div>
                                         </li>
@@ -77,7 +77,7 @@ export default function Header4({ scroll, handleMobileMenu }: Header4Props) {
                                                 <Image src="/assets/images/icon/icon-register.png" alt="Icon" width={26} height={26} priority />
                                             </div>
                                             <div className="text1">
-                                                <h4><Link href="https://app.lucidglobalinvest.com/register">Register</Link></h4>
+                                                <h4><Link href="/register">Register</Link></h4>
                                                 <p>Start Your Journey</p>
                                             </div>
                                         </li>

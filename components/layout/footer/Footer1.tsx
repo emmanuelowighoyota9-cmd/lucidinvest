@@ -31,14 +31,14 @@ export default function Footer1() {
                                                     <h3>Begin Your Trading,</h3>
                                                 </div>
                                                 <div className="btn-box">
-                                                    <Link href="https://app.lucidglobalinvest.com/register"
+                                                    <Link href="/register"
                                                         className="btn-one">
                                                         <span className="txt">
                                                             New Account
                                                             <i className="icon-right-arrow"></i>
                                                         </span>
                                                     </Link>
-                                                    <Link href="https://app.lucidglobalinvest.com/login"
+                                                    <Link href="/login"
                                                         className="btn-one">
                                                         <span className="txt">
                                                             Sign In

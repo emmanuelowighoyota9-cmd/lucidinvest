@@ -1,23 +1,122 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from "./AuthForm.module.css";
 
 type Props = { mode: "login" | "register" };
 
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" aria-hidden="true">
+      <path d="M20 6 9 17l-5-5" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function EyeIcon({ off }: { off: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+      <path
+        d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="12" r="3.1" stroke="currentColor" strokeWidth="1.6" />
+      {off && <path d="M4 20 20 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />}
+    </svg>
+  );
+}
+
+const PANEL_CONTENT = {
+  login: {
+    eyebrow: "WELCOME BACK",
+    title: "Sign in to Lucid Global Invest",
+    lead: "Access your dashboard, account status and market coverage in one place.",
+    panelTitle: "Your markets, one secure desk.",
+    panelLead: "Sign in to pick up where you left off.",
+    features: [
+      {
+        title: "Markets that move with you",
+        text: "Forex, stocks, commodities, crypto, futures and options from a single account.",
+      },
+      {
+        title: "Protected by design",
+        text: "Passwords are hashed with scrypt and sessions use signed, HttpOnly cookies.",
+      },
+      {
+        title: "Help within reach",
+        text: "Reach our team from the live chat available on every page of the site.",
+      },
+    ],
+  },
+  register: {
+    eyebrow: "GET STARTED",
+    title: "Create your Lucid Global Invest account",
+    lead: "A few details and your personal dashboard is ready.",
+    panelTitle: "Open your account in minutes.",
+    panelLead: "Join investors tracking global markets with Lucid Global Invest.",
+    features: [
+      {
+        title: "One account, six markets",
+        text: "Forex, stocks, commodities, crypto, futures and options in one place.",
+      },
+      {
+        title: "Straightforward onboarding",
+        text: "Create the account, sign in and review your dashboard right away.",
+      },
+      {
+        title: "Security from day one",
+        text: "Scrypt password hashing and signed, HttpOnly session cookies as standard.",
+      },
+    ],
+  },
+} as const;
+
 export default function AuthForm({ mode }: Props) {
   const router = useRouter();
+  const uid = useId();
+  const registering = mode === "register";
+  const content = PANEL_CONTENT[mode];
+
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
-  const registering = mode === "register";
+
+  const emailId = `${uid}-email`;
+  const nameId = `${uid}-name`;
+  const passwordId = `${uid}-password`;
+  const confirmId = `${uid}-confirm`;
+  const longEnough = password.length >= 12;
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
+
+    if (registering) {
+      if (fullName.trim().replace(/\s+/g, " ").length < 2) {
+        setError("Enter your full name (2–100 characters).");
+        return;
+      }
+      if (!longEnough) {
+        setError("Choose a password with at least 12 characters.");
+        return;
+      }
+      if (password !== confirmPassword) {
+        setError("Both passwords must match.");
+        return;
+      }
+    }
+
     setBusy(true);
     try {
       const response = await fetch(`/api/auth/${registering ? "register" : "login"}`, {
@@ -26,69 +125,202 @@ export default function AuthForm({ mode }: Props) {
         credentials: "same-origin",
         body: JSON.stringify({ ...(registering ? { fullName } : {}), email, password }),
       });
-      const result: unknown = await response.json();
-      const message = result && typeof result === "object" && "error" in result && typeof result.error === "string"
-        ? result.error : "";
+
+      let message = "";
+      try {
+        const result: unknown = await response.json();
+        if (result && typeof result === "object" && "error" in result && typeof result.error === "string") {
+          message = result.error;
+        }
+      } catch {
+        /* Non-JSON responses still fall back to the generic message below. */
+      }
+
       if (!response.ok) {
         setError(message || "We could not complete your request. Please try again.");
         return;
       }
+
       router.push("/dashboard");
       router.refresh();
     } catch {
-      setError("Connection problem. Please check your internet connection and try again.");
+      setError("Connection problem. Check your internet connection and try again.");
     } finally {
       setBusy(false);
     }
   }
 
   return (
-    <main className="auth-shell">
-      <section className="auth-card" aria-labelledby="auth-title">
-        <Link className="auth-brand" href="/">LucidInvest</Link>
-        <p className="auth-eyebrow">{registering ? "GET STARTED" : "WELCOME BACK"}</p>
-        <h1 id="auth-title">{registering ? "Create your account" : "Sign in to LucidInvest"}</h1>
-        <p className="auth-description">{registering ? "Set up your personal account to get started." : "Enter your account details to continue."}</p>
-        <form onSubmit={submit}>
-          {registering && (
-            <label className="auth-label">Full name
-              <input autoComplete="name" value={fullName} onChange={e => setFullName(e.target.value)} minLength={2} maxLength={100} required />
-            </label>
-          )}
-          <label className="auth-label">Email address
-            <input type="email" autoComplete="email" value={email} onChange={e => setEmail(e.target.value)} maxLength={254} required />
-          </label>
-          <label className="auth-label">Password
-            <input type="password" autoComplete={registering ? "new-password" : "current-password"} value={password} onChange={e => setPassword(e.target.value)} minLength={registering ? 12 : 1} maxLength={128} required />
-            {registering && <span className="auth-hint">Use at least 12 characters.</span>}
-          </label>
-          {error && <p className="auth-error" role="alert">{error}</p>}
-          <button className="auth-submit" type="submit" disabled={busy}>{busy ? "Please wait…" : registering ? "Create account" : "Sign in"}</button>
-        </form>
-        <p className="auth-switch">{registering ? "Already have an account?" : "New to LucidInvest?"}{" "}
-          <Link href={registering ? "/login" : "/register"}>{registering ? "Sign in" : "Create an account"}</Link>
-        </p>
-        <p className="auth-footnote">Keep your password private. LucidInvest will never ask you to share it by email.</p>
+    <main className={styles.shell}>
+      <section className={styles.card}>
+        <div className={styles.panel}>
+          <Link href="/" className={styles.logoChip} aria-label="Lucid Global Invest home">
+            <Image
+              src="/assets/images/resources/lucid-global-invest-logo.png"
+              alt="Lucid Global Invest"
+              width={142}
+              height={71}
+              priority
+              className={styles.logoImage}
+            />
+          </Link>
+          <h2 className={styles.panelTitle}>{content.panelTitle}</h2>
+          <p className={styles.panelLead}>{content.panelLead}</p>
+          <ul className={styles.features}>
+            {content.features.map((feature) => (
+              <li key={feature.title} className={styles.feature}>
+                <span className={styles.featureIcon}>
+                  <CheckIcon />
+                </span>
+                <span>
+                  <span className={styles.featureTitle}>{feature.title}</span>
+                  <span className={styles.featureText}>{feature.text}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className={styles.panelFooter}>Secure sign-in · scrypt hashing · HttpOnly sessions</p>
+        </div>
+
+        <div className={styles.formSide}>
+          <Link href="/" className={styles.back}>
+            ← Back to website
+          </Link>
+          <p className={styles.eyebrow}>{content.eyebrow}</p>
+          <h1 className={styles.title}>{content.title}</h1>
+          <p className={styles.lead}>{content.lead}</p>
+
+          <form className={styles.form} onSubmit={submit} noValidate={false}>
+            {registering && (
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor={nameId}>
+                  Full name
+                </label>
+                <div className={styles.control}>
+                  <input
+                    id={nameId}
+                    className={styles.input}
+                    name="name"
+                    autoComplete="name"
+                    placeholder="Jordan Miller"
+                    value={fullName}
+                    onChange={(event) => setFullName(event.target.value)}
+                    minLength={2}
+                    maxLength={100}
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor={emailId}>
+                Email address
+              </label>
+              <div className={styles.control}>
+                <input
+                  id={emailId}
+                  className={styles.input}
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  maxLength={254}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className={styles.field}>
+              <label className={styles.label} htmlFor={passwordId}>
+                Password
+              </label>
+              <div className={styles.control}>
+                <input
+                  id={passwordId}
+                  className={`${styles.input} ${styles.inputPassword}`}
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  autoComplete={registering ? "new-password" : "current-password"}
+                  placeholder={registering ? "At least 12 characters" : "Your password"}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  minLength={registering ? 12 : 1}
+                  maxLength={128}
+                  required
+                />
+                <button
+                  type="button"
+                  className={styles.toggle}
+                  onClick={() => setShowPassword((value) => !value)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-pressed={showPassword}
+                >
+                  <EyeIcon off={showPassword} />
+                </button>
+              </div>
+              {registering && (
+                <p className={`${styles.hint} ${longEnough ? styles.hintOk : ""}`}>
+                  {longEnough ? "✓ 12 character minimum met" : "Use at least 12 characters."}
+                </p>
+              )}
+            </div>
+
+            {registering && (
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor={confirmId}>
+                  Confirm password
+                </label>
+                <div className={styles.control}>
+                  <input
+                    id={confirmId}
+                    className={`${styles.input} ${styles.inputPassword}`}
+                    type={showConfirm ? "text" : "password"}
+                    name="confirmPassword"
+                    autoComplete="new-password"
+                    placeholder="Repeat your password"
+                    value={confirmPassword}
+                    onChange={(event) => setConfirmPassword(event.target.value)}
+                    maxLength={128}
+                    required
+                  />
+                  <button
+                    type="button"
+                    className={styles.toggle}
+                    onClick={() => setShowConfirm((value) => !value)}
+                    aria-label={showConfirm ? "Hide password confirmation" : "Show password confirmation"}
+                    aria-pressed={showConfirm}
+                  >
+                    <EyeIcon off={showConfirm} />
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <p className={styles.error} role="alert">
+                {error}
+              </p>
+            )}
+
+            <button className={styles.submit} type="submit" disabled={busy}>
+              {busy ? (registering ? "Creating your account…" : "Signing you in…") : registering ? "Create account" : "Sign in"}
+            </button>
+          </form>
+
+          <p className={styles.switch}>
+            {registering ? "Already have an account?" : "New to Lucid Global Invest?"}{" "}
+            <Link href={registering ? "/login" : "/register"}>{registering ? "Sign in" : "Create an account"}</Link>
+          </p>
+          <p className={styles.footnote}>
+            {registering
+              ? "New accounts are reviewed before investment and money-movement features are enabled. Keep your password private — we will never ask you to share it by email."
+              : "Keep your password private. Lucid Global Invest will never ask you to share it by email."}
+          </p>
+        </div>
       </section>
-      <style jsx>{`
-        .auth-shell{min-height:100vh;display:grid;place-items:center;padding:32px 18px;background:linear-gradient(135deg,#f4f7fb,#e9eef8);color:#17233b}
-        .auth-card{width:100%;max-width:460px;background:#fff;padding:clamp(26px,5vw,44px);border-radius:20px;box-shadow:0 20px 60px rgba(18,36,70,.12)}
-        .auth-brand{font-size:24px;font-weight:800;letter-spacing:-.7px;color:#153c75;text-decoration:none}
-        .auth-eyebrow{margin:28px 0 8px;font-size:11px;font-weight:800;letter-spacing:2px;color:#426bb0}
-        h1{font-size:clamp(27px,4vw,34px);line-height:1.2;letter-spacing:-.8px;margin:0}
-        .auth-description{color:#667085;line-height:1.6;margin:12px 0 28px}
-        form{display:grid;gap:18px}
-        .auth-label{display:grid;gap:8px;font-size:14px;font-weight:650}
-        input{width:100%;box-sizing:border-box;border:1px solid #d7deea;border-radius:10px;padding:13px 14px;font:inherit;color:#17233b;background:#fff;outline:none}
-        input:focus{border-color:#426bb0;box-shadow:0 0 0 3px rgba(66,107,176,.14)}
-        .auth-hint{font-size:12px;font-weight:400;color:#667085}
-        .auth-error{margin:0;padding:11px 13px;border-radius:9px;background:#fff0f0;color:#9b2525;font-size:13px}
-        .auth-submit{border:0;border-radius:10px;padding:14px 18px;background:#173f7b;color:white;font:inherit;font-weight:750;cursor:pointer}
-        .auth-submit:disabled{opacity:.65;cursor:wait}
-        .auth-switch{text-align:center;color:#667085;font-size:14px;margin:22px 0 0}
-        .auth-switch a{color:#173f7b;font-weight:750}
-        .auth-footnote{border-top:1px solid #edf0f5;padding-top:18px;margin:22px 0 0;color:#8a94a6;font-size:12px;line-height:1.6;text-align:center}
-      `}</style>
     </main>
   );
 }
