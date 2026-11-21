@@ -1,0 +1,24 @@
+# Dependencies
+/node_modules
+
+# Next.js build output
+/.next/
+/out/
+/build/
+*.tsbuildinfo
+
+# Environment files (the example stays tracked)
+.env
+.env.*
+!.env.example
+
+# Local verification screenshots and reports
+/artifacts/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
