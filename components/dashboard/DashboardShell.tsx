@@ -7,8 +7,9 @@ import { useState } from "react";
 import styles from "./dashboard.module.css";
 
 type ShellUser = { name: string; email: string };
+type Area = "customer" | "admin";
 
-type NavItem = { href: string; label: string; icon: React.ReactNode };
+type NavItem = { href: string; label: string; exact?: boolean; icon: React.ReactNode };
 
 function Icon({ children }: { children: React.ReactNode }) {
   return (
@@ -18,10 +19,11 @@ function Icon({ children }: { children: React.ReactNode }) {
   );
 }
 
-const NAV: NavItem[] = [
+const CUSTOMER_NAV: NavItem[] = [
   {
     href: "/dashboard",
     label: "Overview",
+    exact: true,
     icon: (
       <Icon>
         <rect x="3" y="3" width="7.5" height="7.5" rx="2" stroke="currentColor" strokeWidth="1.7" />
@@ -83,10 +85,99 @@ const NAV: NavItem[] = [
   },
 ];
 
-export default function DashboardShell({ user, children }: { user: ShellUser; children: React.ReactNode }) {
+const ADMIN_NAV: NavItem[] = [
+  {
+    href: "/admin",
+    label: "Overview",
+    exact: true,
+    icon: (
+      <Icon>
+        <path d="M12 3.5 19 6v5.4c0 4.2-2.9 7.6-7 9.1-4.1-1.5-7-4.9-7-9.1V6l7-2.5Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/admin/customers",
+    label: "Customers",
+    icon: (
+      <Icon>
+        <circle cx="9" cy="8.5" r="3.5" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M2.5 20c1.2-3.2 3.6-4.9 6.5-4.9s5.3 1.7 6.5 4.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+        <path d="M16.5 5.4a3.2 3.2 0 0 1 0 6.2M18 15.4c2 .5 3.2 2 3.8 4.1" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/admin/accounts",
+    label: "Accounts",
+    icon: (
+      <Icon>
+        <rect x="3" y="6" width="18" height="13" rx="3" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M3 10.5h18" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M7 15.5h4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/admin/enquiries",
+    label: "Enquiries",
+    icon: (
+      <Icon>
+        <path d="M3.5 6.5h17v11h-17z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+        <path d="m3.5 7.5 8.5 6 8.5-6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      </Icon>
+    ),
+  },
+];
+
+const AREA: Record<Area, { nav: NavItem[]; label: string }> = {
+  customer: { nav: CUSTOMER_NAV, label: "Customer area" },
+  admin: { nav: ADMIN_NAV, label: "Operations" },
+};
+
+export default function DashboardShell({
+  user,
+  area = "customer",
+  showAdminLink = false,
+  children,
+}: {
+  user: ShellUser;
+  area?: Area;
+  showAdminLink?: boolean;
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [busy, setBusy] = useState(false);
+  const { nav, label } = AREA[area];
+  const crossLink: NavItem | null =
+    area === "admin"
+      ? {
+          href: "/dashboard",
+          label: "Customer view",
+          icon: (
+            <Icon>
+              <path d="M14 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M20 4v5h-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+            </Icon>
+          ),
+        }
+      : showAdminLink
+        ? {
+            href: "/admin",
+            label: "Admin console",
+            icon: (
+              <Icon>
+                <path d="M12 3.5 19 6v5.4c0 4.2-2.9 7.6-7 9.1-4.1-1.5-7-4.9-7-9.1V6l7-2.5Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+              </Icon>
+            ),
+          }
+        : null;
+  const items = crossLink ? [...nav, crossLink] : nav;
+
+  function isActive(item: NavItem) {
+    return item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(`${item.href}/`);
+  }
 
   async function signOut() {
     setBusy(true);
@@ -113,10 +204,10 @@ export default function DashboardShell({ user, children }: { user: ShellUser; ch
           />
         </Link>
 
-        <p className={styles.navLabel}>Customer area</p>
-        <nav className={styles.nav} aria-label="Dashboard">
-          {NAV.map((item) => {
-            const active = item.href === "/dashboard" ? pathname === item.href : pathname.startsWith(item.href);
+        <p className={styles.navLabel}>{label}</p>
+        <nav className={styles.nav} aria-label={area === "admin" ? "Admin" : "Dashboard"}>
+          {items.map((item) => {
+            const active = isActive(item);
             return (
               <Link
                 key={item.href}

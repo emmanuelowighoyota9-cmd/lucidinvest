@@ -111,3 +111,10 @@ export async function requireUser() {
   if (!user) redirect("/login");
   return user;
 }
+
+/** For staff-only pages: signed-in accounts without the admin role go to the customer area. */
+export async function requireAdmin() {
+  const user = await requireUser();
+  if (user.role !== "admin") redirect("/dashboard");
+  return user;
+}

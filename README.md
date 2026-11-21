@@ -12,6 +12,18 @@ LucidInvest is a Next.js application deployed on Vercel with Neon PostgreSQL.
 
 Authentication uses Node.js scrypt password hashes and an HttpOnly, SameSite=Lax, signed session cookie backed by the `auth_sessions` table. Set `DATABASE_URL` and a unique `AUTH_SECRET` (at least 32 characters) in Vercel; never commit either secret. Before enabling auth, review and apply `migrations/0002_authentication.sql` after backing up and inspecting the existing Neon schema. The migration is additive and preserves existing records. Existing accounts without a password hash need a verified password-reset/onboarding process before they can use password login.
 
+## Admin console
+
+`/admin` is a read-only operations view for staff (overview, customers, accounts and contact enquiries). It is gated to the `admin` role: signed-out visits are redirected to `/login` by middleware and signed-in non-admins are redirected to `/dashboard` by the admin layout. Customers with the admin role also get an "Admin console" link in the dashboard sidebar.
+
+Promote a reviewed account after verifying it in the database:
+
+```sql
+UPDATE app_users SET role = 'admin' WHERE email = 'someone@example.com';
+```
+
+There is no self-service route to become an admin, and the console exposes no money-movement actions.
+
 ## Neon PostgreSQL
 
 The server-side database integration uses Neon’s serverless PostgreSQL driver. Browser code must never connect directly to Neon.
