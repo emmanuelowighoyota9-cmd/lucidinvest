@@ -14,9 +14,17 @@ Authentication uses Node.js scrypt password hashes and an HttpOnly, SameSite=Lax
 
 ## Admin console
 
-`/admin` is a read-only operations view for staff (overview, customers, accounts and contact enquiries). It is gated to the `admin` role: signed-out visits are redirected to `/login` by middleware and signed-in non-admins are redirected to `/dashboard` by the admin layout. Customers with the admin role also get an "Admin console" link in the dashboard sidebar.
+`/admin` is a read-only operations view for staff (overview, customers, accounts and contact enquiries). It is gated to the `admin` role: signed-out visits are redirected to `/login` by middleware and signed-in non-admins are redirected to `/dashboard`. Customers with the admin role also get an "Admin console" link in the dashboard sidebar.
 
-Promote a reviewed account after verifying it in the database:
+### First-time admin setup
+
+1. Add an `ADMIN_SETUP_KEY` secret in Vercel: at least 16 characters, unique to this deployment. Never commit it.
+2. Register or sign in with the account that should own the console.
+3. Visit `/admin/setup`, enter the setup key and that account's password.
+
+Setup only runs while no admin exists. Once one does, the page explains that setup is complete and `POST /api/admin/setup` answers 409. The promotion is a single conditional `UPDATE`, so two simultaneous claims cannot both succeed, and it is recorded in `audit_events` as `admin.bootstrap`. Without `ADMIN_SETUP_KEY` the page stays locked, so the console cannot be claimed by whoever registers first.
+
+Further admins are promoted by an existing admin after review, directly in the database:
 
 ```sql
 UPDATE app_users SET role = 'admin' WHERE email = 'someone@example.com';

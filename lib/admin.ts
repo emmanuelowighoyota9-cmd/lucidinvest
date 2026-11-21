@@ -125,6 +125,23 @@ export async function getAdminEnquiries() {
   `);
 }
 
+/** Number of accounts that can use the admin console. */
+export async function getAdminCount() {
+  const sql = getSql();
+  const result = rows<{ total: number }>(await sql`
+    SELECT count(*)::int AS total
+    FROM app_users
+    WHERE role = 'admin'
+  `);
+  return Number(result[0]?.total ?? 0);
+}
+
+/** The first-run setup key, or null when the deployment has not configured one. */
+export function getAdminSetupKey() {
+  const key = process.env.ADMIN_SETUP_KEY;
+  return key && key.trim().length >= 16 ? key.trim() : null;
+}
+
 export async function getAdminAuditEvents() {
   const sql = getSql();
   return rows<AdminAuditRow>(await sql`

@@ -38,23 +38,27 @@ async function liveSessionToken(value: string | undefined, secret: string) {
 }
 
 /**
- * Staff areas need the role from the database. If the lookup fails we let the
- * request through so the admin layout, which repeats the check, can decide.
+ * Staff areas need the role from the database, plus whether any admin exists at
+ * all so a fresh deployment can be sent to first-time setup. If the lookup fails
+ * we let the request through so the admin layout, which repeats the check, can
+ * decide.
  */
-async function isAdminSession(token: string) {
+async function adminAccess(token: string) {
   try {
     const digest = toHex(new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(token))));
     const result = await getSql()`
-      SELECT u.role
+      SELECT u.role AS role,
+             (SELECT count(*)::int FROM app_users WHERE role = 'admin') AS admin_count
       FROM auth_sessions s
       JOIN app_users u ON u.id = s.user_id
       WHERE s.token_hash = ${digest} AND s.expires_at > now() AND u.status = 'active'
       LIMIT 1
     `;
     const rows = Array.isArray(result) ? result : [];
-    return (rows[0] as { role?: string } | undefined)?.role === "admin";
+    const row = rows[0] as { role?: string; admin_count?: number | string } | undefined;
+    return row ? { role: row.role ?? "", adminExists: Number(row.admin_count ?? 0) > 0 } : null;
   } catch {
-    return true;
+    return null;
   }
 }
 
@@ -66,6 +70,10 @@ function redirectTo(request: NextRequest, pathname: string) {
 }
 
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  // Setup stays reachable without a session so the page can explain both steps.
+  if (pathname === "/admin/setup") return NextResponse.next();
+
   const secret = process.env.AUTH_SECRET;
   // Without a usable secret every session is invalid anyway; let the layouts decide.
   if (!secret || secret.length < 32) return NextResponse.next();
@@ -73,8 +81,10 @@ export async function middleware(request: NextRequest) {
   const token = await liveSessionToken(request.cookies.get(SESSION_COOKIE_NAME)?.value, secret);
   if (!token) return redirectTo(request, "/login");
 
-  if (request.nextUrl.pathname.startsWith("/admin") && !(await isAdminSession(token))) {
-    return redirectTo(request, "/dashboard");
+  if (pathname.startsWith("/admin")) {
+    const access = await adminAccess(token);
+    if (access && !access.adminExists) return redirectTo(request, "/admin/setup");
+    if (access && access.role !== "admin") return redirectTo(request, "/dashboard");
   }
 
   return NextResponse.next();
