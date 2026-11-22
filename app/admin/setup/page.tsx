@@ -65,7 +65,7 @@ export default async function AdminSetupPage() {
               <span>
                 <span className={styles.featureTitle}>Open the console</span>
                 <span className={styles.featureText}>
-                  The new admin can review customers, accounts, enquiries and audit events — read-only.
+                  The new admin can review customers, accounts, enquiries, investments and wallet requests, and every change is audited.
                 </span>
               </span>
             </li>

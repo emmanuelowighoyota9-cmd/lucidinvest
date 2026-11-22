@@ -14,8 +14,8 @@ const SECTIONS = [
   {
     title: "What the portal does",
     body: [
-      "The customer dashboard is a read-only view of the account, investment and transaction records our staff have posted for you, plus your profile and security settings.",
-      "This version of the portal does not take deposits, process withdrawals or place trades. Instructions of that kind are handled by our team through reviewed processes so that each step is recorded and auditable.",
+      "The customer dashboard shows the account, investment, transaction and wallet records our staff have posted for you, plus your profile and security settings.",
+      "You can record deposit and withdrawal instructions and move funds between your own wallet and accounts. The portal has no external payment rail: deposits and withdrawals are requests that our team reviews and posts to the ledger, and every step is recorded and auditable.",
       "Nothing on this site is an offer, a recommendation to buy or sell any instrument, or a promise of any return.",
     ],
   },

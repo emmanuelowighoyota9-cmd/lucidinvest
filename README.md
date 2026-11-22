@@ -14,7 +14,7 @@ Authentication uses Node.js scrypt password hashes and an HttpOnly, SameSite=Lax
 
 ## Admin console
 
-`/admin` is a read-only operations view for staff (overview, customers, accounts and contact enquiries). It is gated to the `admin` role: signed-out visits are redirected to `/login` by middleware and signed-in non-admins are redirected to `/dashboard`. Customers with the admin role also get an "Admin console" link in the dashboard sidebar.
+`/admin` is an audited operations console for staff (overview, customers, accounts, investments, wallet requests and contact enquiries). It is gated to the `admin` role: signed-out visits are redirected to `/login` by middleware and signed-in non-admins are redirected to `/dashboard`. Customers with the admin role also get an "Admin console" link in the dashboard sidebar.
 
 ### First-time admin setup
 
@@ -30,7 +30,7 @@ Further admins are promoted by an existing admin after review, directly in the d
 UPDATE app_users SET role = 'admin' WHERE email = 'someone@example.com';
 ```
 
-There is no self-service route to become an admin, and the console exposes no money-movement actions.
+There is no self-service route to become an admin, and every console action writes its `audit_events` row.
 
 ## Neon PostgreSQL
 
@@ -38,7 +38,7 @@ The server-side database integration uses Neon’s serverless PostgreSQL driver.
 
 - Connection health: `GET /api/health`
 - Contact submissions are persisted in `contact_enquiries` once the initial migration is applied.
-- No deposits, withdrawals, trading, or real-money operations are enabled by these auth routes.
+- These auth routes never post a ledger entry or change a balance.
 - Do not commit credentials or seed fake customer balances.
 
 ### Customer accounts, investments and transactions
@@ -50,6 +50,17 @@ The server-side database integration uses Neon’s serverless PostgreSQL driver.
 - The overview's portfolio principal counts only `active` positions and its hint shows how many requests are still pending review.
 - These requests write `customer_accounts`, `investments` and `audit_events` rows only. They never post a ledger entry, set a balance or move money in either direction. One open account per type and currency is allowed (up to ten), and a customer can hold at most ten pending investment requests.
 - `migrations/0003_investment_catalogue.sql` publishes the starting product catalogue. It creates no customer records, balances or ledger entries; review the product names, currencies and minimums before applying it.
+
+### Wallet and trading accounts
+
+- `GET /api/wallet/overview` returns the customer's wallet (number, currency, ledger balance), their real and demo accounts with balances, and any pending deposit/withdrawal requests.
+- `GET /api/wallet/transactions?page=1&pageSize=20&kind=deposit|withdrawal|transfer|investment&status=posted|pending|reversed|failed` returns a page of ledger entries across the wallet and the customer's own accounts.
+- `POST /api/wallet/deposits` and `POST /api/wallet/withdrawals` record a `pending` row in `wallet_requests`. Nothing is credited or debited until staff confirm it, and a pending withdrawal reserves its amount against the wallet balance. A withdrawal requires a note describing the payout details.
+- `POST /api/wallet/transfers` moves wallet funds into one of the customer's own real accounts. One statement re-checks the available balance and posts the wallet debit, the account credit, the ledger transaction and the audit event, so the two sides can never land alone.
+- `PATCH /api/admin/wallet-requests/:id` approves (`posted`) or rejects (`rejected`) a request. Approval updates the request, posts the single wallet entry and writes the audit row in one statement; a withdrawal whose balance no longer covers it is refused rather than overdrawing the wallet.
+- Money is integer minor units in the API and UI (`lib/money.ts`) and `NUMERIC(24, 8)` in Postgres. Amounts accept at most two decimal places and the dashboard never does floating-point maths on a balance.
+- `migrations/0006_wallet.sql` adds `wallets`, `wallet_requests` and a nullable `ledger_entries.wallet_id`, with a check that each entry belongs to exactly one account **or** wallet. No wallet is created with a balance and no payment provider is connected, so a deposit or withdrawal only becomes balance when staff post it.
+- Demo accounts are listed separately and are never funded from the wallet; they are not connected to the live ledger.
 
 ### Password recovery and security
 
@@ -72,7 +83,7 @@ The console at `/admin` is gated by `requireAdmin()` in the layout and again in 
 - `PATCH /api/admin/investments/:id` approves (`active`) or rejects (`rejected`) a pending request. Approval flips the status, posts one `ledger_transactions` row and its `ledger_entries` entry, and writes the audit event in a single SQL statement, so a double approval cannot post twice.
 - `PATCH /api/admin/enquiries/:id` moves an enquiry through `new → reviewing → resolved` (or `spam`).
 
-There are still no deposits, withdrawals, trades, balance edits or reversals anywhere in the application.
+Wallet deposits and withdrawals are confirmed from the Wallet requests tab, and each confirmation posts its wallet ledger entry in the same statement. Balance edits, reversals and trading remain unavailable.
 
 ## Content pages and articles
 

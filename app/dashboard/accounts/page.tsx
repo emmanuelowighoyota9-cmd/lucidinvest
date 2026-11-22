@@ -80,9 +80,8 @@ export default async function DashboardAccountsPage({
       </section>
 
       <p className={styles.notice}>
-        Opening an account records a review request; it does not create a balance or move money. Deposits, withdrawals,
-        transfers and trading are not available from this dashboard — contact support if you need to change something
-        about an account.
+        Opening an account records a review request; it does not create a balance or move money. Once our team has
+        activated it you can fund it from your wallet, which posts the wallet debit and the account credit together.
       </p>
     </>
   );

@@ -17,6 +17,8 @@ The authentication migration `migrations/0002_authentication.sql` is additive: i
 
 The password reset migration `migrations/0004_password_resets.sql` adds the `password_reset_tokens` table (digest only, one-hour expiry, single use). The contact migration `migrations/0005_contact_phone.sql` adds a nullable `phone` column to `contact_enquiries`. Both are additive and touch no existing rows.
 
+The wallet migration `migrations/0006_wallet.sql` adds `wallets`, `wallet_requests`, a nullable `ledger_entries.wallet_id` and a check that every ledger entry belongs to exactly one account **or** wallet. It creates no wallet rows, balances or ledger entries, and it changes no existing entry. Apply it after `0001`, and before deploying the wallet screens, otherwise `/dashboard/wallet` and the wallet APIs answer with a configuration/database error.
+
 The catalogue migration `migrations/0003_investment_catalogue.sql` is additive as well: it publishes five active investment products and touches no customer, account, ledger or balance data. Review the product names, currencies and minimums against the approved offering before applying it. Without active products the investment form stays disabled and the dashboard explains that no products are published.
 
 ## 3. Authentication routes
@@ -42,4 +44,5 @@ Passwords are hashed with Node.js scrypt. Session tokens are random, stored as S
 5. Verify existing records remain intact and that no real-money functionality is exposed by these changes.
 6. Test password recovery end to end: request a link, confirm the token is stored hashed and expires in an hour, reset the password, confirm every earlier session is signed out and the token cannot be reused. Test the change-password form on `/dashboard/security` with a wrong and a correct current password.
 7. Test the admin console with a staff account: approve an account, approve an investment request and confirm exactly one posted `ledger_transactions` row plus its `ledger_entries` entry and the audit row, reject another request and confirm no ledger row, then move an enquiry through review. Confirm a customer session gets 403 from the same endpoints.
-8. Review deployment build and runtime logs for errors; never include secrets in diagnostic output.
+8. Test the wallet end to end with a customer: the wallet appears with a `W…` number and $0.00, a deposit request and a withdrawal request land in `wallet_requests` as `pending`, and a transfer with an empty wallet is refused. As staff, approve the deposit and confirm exactly one wallet ledger entry and its audit row; then transfer part of the balance to an active real account and confirm one transaction with two entries (wallet debit, account credit). Approve a withdrawal larger than the remaining balance and confirm it is refused.
+9. Review deployment build and runtime logs for errors; never include secrets in diagnostic output.

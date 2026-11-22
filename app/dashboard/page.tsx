@@ -133,8 +133,9 @@ export default async function DashboardOverviewPage() {
       </div>
 
       <p className={styles.notice}>
-        Deposits, withdrawals, trading and other money-movement features are not enabled on this dashboard. Balances,
-        investments and history shown here are read-only records from your account.
+        Your wallet records deposit and withdrawal instructions for staff review and moves wallet funds into your own
+        accounts. Balances shown here are posted ledger records, not a live trading balance — see the wallet for the
+        full history.
       </p>
     </>
   );

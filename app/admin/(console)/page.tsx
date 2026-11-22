@@ -122,8 +122,9 @@ export default async function AdminOverviewPage() {
       </div>
 
       <p className={styles.notice}>
-        Staff actions here are limited to review statuses and approving a pending investment, which books its
-        subscription entry. Deposits, withdrawals, trading, balance edits and reversals remain unavailable.
+        Staff actions here are limited to review statuses, approving a pending investment (which books its
+        subscription entry) and confirming wallet deposits or withdrawals (which post one wallet entry each). Balance
+        edits, reversals and trading remain unavailable.
       </p>
     </>
   );

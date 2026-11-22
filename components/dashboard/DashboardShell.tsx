@@ -34,6 +34,17 @@ const CUSTOMER_NAV: NavItem[] = [
     ),
   },
   {
+    href: "/dashboard/wallet",
+    label: "Wallet",
+    icon: (
+      <Icon>
+        <rect x="3" y="6" width="18" height="13" rx="3" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M3 10.5h18" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="17" cy="14.5" r="1.3" fill="currentColor" />
+      </Icon>
+    ),
+  },
+  {
     href: "/dashboard/accounts",
     label: "Accounts",
     icon: (
@@ -125,6 +136,17 @@ const ADMIN_NAV: NavItem[] = [
       <Icon>
         <path d="M4 17.5 9 11l3.5 3.2L20 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M15.5 6H20v4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      </Icon>
+    ),
+  },
+  {
+    href: "/admin/wallet-requests",
+    label: "Wallet requests",
+    icon: (
+      <Icon>
+        <rect x="3" y="6" width="18" height="13" rx="3" stroke="currentColor" strokeWidth="1.7" />
+        <path d="M3 10.5h18" stroke="currentColor" strokeWidth="1.7" />
+        <path d="m14 16 2.5-2.5L19 16" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
       </Icon>
     ),
   },

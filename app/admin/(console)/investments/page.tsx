@@ -90,8 +90,8 @@ export default async function AdminInvestmentsPage() {
 
       <p className={styles.notice}>
         Approving a request posts one ledger transaction and its subscription entry for the requested principal in the
-        same statement that changes the status. This console cannot take payments, set balances or reverse a posted
-        entry; those remain controlled database operations.
+        same statement that changes the status. Wallet deposits and withdrawals are confirmed from the Wallet requests
+        tab; this console cannot set balances or reverse a posted entry, which remain controlled database operations.
       </p>
     </>
   );
