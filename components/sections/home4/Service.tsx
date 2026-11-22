@@ -42,7 +42,7 @@ export default function Service() {
                                     <p>Find fault with a man who chooses to annoying consequences.</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link href="#" className="link">
+                                    <Link href="/about" className="link">
                                         Read More
                                         <i className="icon-right-arrow"></i>
                                     </Link>
@@ -76,7 +76,7 @@ export default function Service() {
                                     <p>Perfectly simple easy to distinguish in afree hour, when our power.</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link href="#" className="link">
+                                    <Link href="/about" className="link">
                                         Read More
                                         <i className="icon-right-arrow"></i>
                                     </Link>
@@ -110,7 +110,7 @@ export default function Service() {
                                     <p>The claims of duty or the obligations business it will frequently occur.</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link href="#" className="link">
+                                    <Link href="/about" className="link">
                                         Read More
                                         <i className="icon-right-arrow"></i>
                                     </Link>

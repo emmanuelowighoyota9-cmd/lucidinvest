@@ -89,7 +89,7 @@ export default function Blog() {
                                 priority
                                 />
                                 <div className="overlay-icon">
-                                    <Link href="#"
+                                    <Link href="/blog-1"
                                     className="lightbox-image"
                                     onClick={() => {
                                         setIndex(i);

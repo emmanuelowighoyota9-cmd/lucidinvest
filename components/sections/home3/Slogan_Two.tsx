@@ -16,7 +16,7 @@ export default function Slogan_Two() {
                     <div className="slogan-style2__big-title">
                         <Marquee speed={30} direction="left" pauseOnHover className="slogan-style2-scrolling-text">
                             <ul className="list marquee_mode-rightToLeft">
-                                <li className="item">Tradebro</li>
+                                <li className="item">Lucid Global Invest</li>
                             </ul>
                         </Marquee>
                     </div>
@@ -32,7 +32,7 @@ export default function Slogan_Two() {
                     </FadeIn>
                     <FadeIn direction="up" delay={0.0}>
                     <div className="btn-box">
-                        <Link className="btn-one" href="#">
+                        <Link className="btn-one" href="/register">
                             <span className="txt">Start Trading</span>
                             <i className="icon-right-arrow"></i>
                         </Link>

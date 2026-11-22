@@ -52,7 +52,7 @@ export default function Footer3() {
                                             </div>
                                         </div>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/blog-1">
                                                 <span className="txt">Accept Invite</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -75,55 +75,55 @@ export default function Footer3() {
                                     <div className="footer-widget-links-style3">
                                         <ul className="clearfix">
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     About Us
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/blog-1">
                                                     Trading Platforms
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/accounts4-demo-account">
                                                     Demo Account
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/blog-1">
                                                     Market Insights
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/blog-1">
                                                     Faq’s
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/blog-1">
                                                     Customer Support
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/blog-1">
                                                     Tutorials
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/blog-1">
                                                     Economic Calendar
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/contact">
                                                     Careers
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
@@ -157,11 +157,11 @@ export default function Footer3() {
                                                 </div>
                                                 <div className="title2">
                                                     <h3>
-                                                        <Link href="#">How Global Events are Shaping Commodity Prices</Link>
+                                                        <Link href="/blog-1">How Global Events are Shaping Commodity Prices</Link>
                                                     </h3>
                                                 </div>
                                                 <div className="btn-box">
-                                                    <Link href="#">
+                                                    <Link href="/blog-1">
                                                         4 Minutes read
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
@@ -181,12 +181,12 @@ export default function Footer3() {
                                                 </div>
                                                 <div className="title2">
                                                     <h3>
-                                                        <Link href="#">The Effect of Fiscal Policies on Stock Market
+                                                        <Link href="/blog-1">The Effect of Fiscal Policies on Stock Market
                                                             Performance</Link>
                                                     </h3>
                                                 </div>
                                                 <div className="btn-box">
-                                                    <Link href="#">
+                                                    <Link href="/blog-1">
                                                         3 Minutes read
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>

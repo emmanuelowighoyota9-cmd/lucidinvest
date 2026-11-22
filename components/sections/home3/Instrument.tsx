@@ -15,7 +15,7 @@ export default function Instrument() {
                         <h2>Leading Market Price List</h2>
                     </div>
                     <div className="btn-box">
-                        <Link href="#">
+                        <Link href="/markets">
                             See More Pairs
                             <i className="icon-right-arrow"></i>
                         </Link>
@@ -27,7 +27,7 @@ export default function Instrument() {
                         <FadeIn direction="up" delay={0.0}>
                         <div className="single-instrument-style2">
                             <div className="left-box">
-                                <Link href="#" className="icon icon1">
+                                <Link href="/markets" className="icon icon1">
                                     <i className="icon-right-down"></i>
                                 </Link>
                                 <div className="text-box">
@@ -47,7 +47,7 @@ export default function Instrument() {
                                     <p>Sell at 1.06185</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="btn-one" href="#">
+                                    <Link className="btn-one" href="/markets">
                                         <span className="txt">Trade</span>
                                         <i className="icon-right-arrow"></i>
                                     </Link>
@@ -62,7 +62,7 @@ export default function Instrument() {
                         <FadeIn direction="up" delay={0.0}>
                         <div className="single-instrument-style2">
                             <div className="left-box">
-                                <Link href="#" className="icon">
+                                <Link href="/markets" className="icon">
                                     <i className="icon-right-up"></i>
                                 </Link>
                                 <div className="text-box">
@@ -82,7 +82,7 @@ export default function Instrument() {
                                     <p>Sell at 1.06185</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="btn-one" href="#">
+                                    <Link className="btn-one" href="/markets">
                                         <span className="txt">Trade</span>
                                         <i className="icon-right-arrow"></i>
                                     </Link>
@@ -97,7 +97,7 @@ export default function Instrument() {
                         <FadeIn direction="up" delay={0.1}>
                         <div className="single-instrument-style2">
                             <div className="left-box">
-                                <Link href="#" className="icon">
+                                <Link href="/markets" className="icon">
                                     <i className="icon-right-up"></i>
                                 </Link>
                                 <div className="text-box">
@@ -117,7 +117,7 @@ export default function Instrument() {
                                     <p>Sell at 1.06185</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="btn-one" href="#">
+                                    <Link className="btn-one" href="/markets">
                                         <span className="txt">Trade</span>
                                         <i className="icon-right-arrow"></i>
                                     </Link>
@@ -132,7 +132,7 @@ export default function Instrument() {
                         <FadeIn direction="up" delay={0.1}>
                         <div className="single-instrument-style2">
                             <div className="left-box">
-                                <Link href="#" className="icon">
+                                <Link href="/markets" className="icon">
                                     <i className="icon-right-up"></i>
                                 </Link>
                                 <div className="text-box">
@@ -152,7 +152,7 @@ export default function Instrument() {
                                     <p>Sell at 1.06185</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="btn-one" href="#">
+                                    <Link className="btn-one" href="/markets">
                                         <span className="txt">Trade</span>
                                         <i className="icon-right-arrow"></i>
                                     </Link>

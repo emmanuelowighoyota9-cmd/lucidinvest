@@ -219,7 +219,7 @@ export default function Instruments() {
                                     </div>
                                     <div className="single-price-list-style1__bottom">
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/markets">
                                                 Start Your Trading
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -231,13 +231,13 @@ export default function Instruments() {
                                             </div>
                                             <ul className="clearfix">
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-telegram"></i>
                                                         <p>Tg</p>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-whatsapp"></i>
                                                         <p>Wa</p>
                                                     </Link>
@@ -358,7 +358,7 @@ export default function Instruments() {
                                     </div>
                                     <div className="single-price-list-style1__bottom">
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/markets">
                                                 Start Your Trading
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -370,13 +370,13 @@ export default function Instruments() {
                                             </div>
                                             <ul className="clearfix">
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-telegram"></i>
                                                         <p>Tg</p>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-whatsapp"></i>
                                                         <p>Wa</p>
                                                     </Link>
@@ -505,7 +505,7 @@ export default function Instruments() {
                                     </div>
                                     <div className="single-price-list-style1__bottom">
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/markets">
                                                 Start Your Trading
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -517,13 +517,13 @@ export default function Instruments() {
                                             </div>
                                             <ul className="clearfix">
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-telegram"></i>
                                                         <p>Tg</p>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-whatsapp"></i>
                                                         <p>Wa</p>
                                                     </Link>
@@ -642,7 +642,7 @@ export default function Instruments() {
                                     </div>
                                     <div className="single-price-list-style1__bottom">
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/markets">
                                                 Start Your Trading
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -654,13 +654,13 @@ export default function Instruments() {
                                             </div>
                                             <ul className="clearfix">
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-telegram"></i>
                                                         <p>Tg</p>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-whatsapp"></i>
                                                         <p>Wa</p>
                                                     </Link>
@@ -781,7 +781,7 @@ export default function Instruments() {
                                     </div>
                                     <div className="single-price-list-style1__bottom">
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/markets">
                                                 Start Your Trading
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -793,13 +793,13 @@ export default function Instruments() {
                                             </div>
                                             <ul className="clearfix">
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-telegram"></i>
                                                         <p>Tg</p>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-whatsapp"></i>
                                                         <p>Wa</p>
                                                     </Link>
@@ -928,7 +928,7 @@ export default function Instruments() {
                                     </div>
                                     <div className="single-price-list-style1__bottom">
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/markets">
                                                 Start Your Trading
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -940,13 +940,13 @@ export default function Instruments() {
                                             </div>
                                             <ul className="clearfix">
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-telegram"></i>
                                                         <p>Tg</p>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         <i className="icon-whatsapp"></i>
                                                         <p>Wa</p>
                                                     </Link>

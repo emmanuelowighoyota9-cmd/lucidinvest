@@ -69,7 +69,7 @@ export default function Trading() {
                                         </div>
                                         <div className="title-box">
                                             <h3>
-                                                <Link href="#">Free Currency Converter</Link>
+                                                <Link href="/platform">Free Currency Converter</Link>
                                             </h3>
                                             <div className="counting">01</div>
                                         </div>
@@ -79,7 +79,7 @@ export default function Trading() {
                                                 inventore veritatis quasi.</p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/platform">
                                                 Use Our Tool
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -106,7 +106,7 @@ export default function Trading() {
                                         </div>
                                         <div className="title-box">
                                             <h3>
-                                                <Link href="#">Margin<br /> Calulator</Link>
+                                                <Link href="/platform">Margin<br /> Calulator</Link>
                                             </h3>
                                             <div className="counting">02</div>
                                         </div>
@@ -118,7 +118,7 @@ export default function Trading() {
                                             </p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/platform">
                                                 Use Our Tool
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -146,7 +146,7 @@ export default function Trading() {
                                         </div>
                                         <div className="title-box">
                                             <h3>
-                                                <Link href="#">Pip Value<br /> Calculator</Link>
+                                                <Link href="/platform">Pip Value<br /> Calculator</Link>
                                             </h3>
                                             <div className="counting">03</div>
                                         </div>
@@ -158,7 +158,7 @@ export default function Trading() {
                                             </p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/platform">
                                                 Use Our Tool
                                                 <i className="icon-right-arrow"></i>
                                             </Link>

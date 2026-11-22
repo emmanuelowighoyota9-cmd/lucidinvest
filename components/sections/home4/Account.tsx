@@ -66,13 +66,13 @@ export default function Account() {
                                 </li>
                             </ul>
                             <div className="btn-box">
-                                <Link href="#" className="btn-one">
+                                <Link href="/register" className="btn-one">
                                     <span className="txt">
                                         Open Account
                                         <i className="icon-right-arrow"></i>
                                     </span>
                                 </Link>
-                                <Link href="#" className="btn-one2">
+                                <Link href="/accounts" className="btn-one2">
                                     More Info
                                 </Link>
                             </div>
@@ -127,13 +127,13 @@ export default function Account() {
                                 </li>
                             </ul>
                             <div className="btn-box">
-                                <Link href="#" className="btn-one">
+                                <Link href="/register" className="btn-one">
                                     <span className="txt">
                                         Open Account
                                         <i className="icon-right-arrow"></i>
                                     </span>
                                 </Link>
-                                <Link href="#" className="btn-one2">
+                                <Link href="/accounts" className="btn-one2">
                                     More Info
                                 </Link>
                             </div>
@@ -188,13 +188,13 @@ export default function Account() {
                                 </li>
                             </ul>
                             <div className="btn-box">
-                                <Link href="#" className="btn-one">
+                                <Link href="/register" className="btn-one">
                                     <span className="txt">
                                         Open Account
                                         <i className="icon-right-arrow"></i>
                                     </span>
                                 </Link>
-                                <Link href="#" className="btn-one2">
+                                <Link href="/accounts" className="btn-one2">
                                     More Info
                                 </Link>
                             </div>

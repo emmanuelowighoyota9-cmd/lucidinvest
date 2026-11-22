@@ -20,13 +20,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>8+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">G.Davidson</Link></h3>
+                                        <h3><Link href="/contact">G.Davidson</Link></h3>
                                         <p>Chief Executive Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -38,7 +38,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -64,13 +64,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>5+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">K.Michael</Link></h3>
+                                        <h3><Link href="/contact">K.Michael</Link></h3>
                                         <p>Chief Technology Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -82,7 +82,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -108,13 +108,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>6+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">M.Frederick</Link></h3>
+                                        <h3><Link href="/contact">M.Frederick</Link></h3>
                                         <p>Head of Market Research</p>
                                     </div>
                                     <div className="bottom-box">
@@ -126,7 +126,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -152,13 +152,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>6+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">M.Frederick</Link></h3>
+                                        <h3><Link href="/contact">M.Frederick</Link></h3>
                                         <p>Head of Market Research</p>
                                     </div>
                                     <div className="bottom-box">
@@ -170,7 +170,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -196,13 +196,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>8+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">G.Davidson</Link></h3>
+                                        <h3><Link href="/contact">G.Davidson</Link></h3>
                                         <p>Chief Executive Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -214,7 +214,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -240,13 +240,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>5+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">K.Michael</Link></h3>
+                                        <h3><Link href="/contact">K.Michael</Link></h3>
                                         <p>Chief Technology Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -258,7 +258,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -284,13 +284,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>5+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">K.Michael</Link></h3>
+                                        <h3><Link href="/contact">K.Michael</Link></h3>
                                         <p>Chief Technology Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -302,7 +302,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -328,13 +328,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>5+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">K.Michael</Link></h3>
+                                        <h3><Link href="/contact">K.Michael</Link></h3>
                                         <p>Chief Technology Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -346,7 +346,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -372,13 +372,13 @@ export default function Team_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>8+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/contact">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">G.Davidson</Link></h3>
+                                        <h3><Link href="/contact">G.Davidson</Link></h3>
                                         <p>Chief Executive Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -390,7 +390,7 @@ export default function Team_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:emailme">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -441,7 +441,7 @@ export default function Team_Page() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Global Forex <br />Broker of the Year</Link></h3>
+                                        <h3><Link href="/about">Global Forex <br />Broker of the Year</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">
@@ -462,7 +462,7 @@ export default function Team_Page() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Most Transparent <br />FX Broker</Link></h3>
+                                        <h3><Link href="/about">Most Transparent <br />FX Broker</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">
@@ -483,7 +483,7 @@ export default function Team_Page() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Best Forex Rewards <br />Program</Link></h3>
+                                        <h3><Link href="/about">Best Forex Rewards <br />Program</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">

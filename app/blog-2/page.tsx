@@ -197,18 +197,6 @@ export default function Blog_Page_Two() {
                 </div>
               ))}
             </div>
-
-            <ul className="styled-pagination clearfix">
-              <li className="arrow prev">
-                <Link href="#"><span className="icon-arrow-left left"></span></Link>
-              </li>
-              <li className="active"><Link href="#">1</Link></li>
-              <li><Link href="#">2</Link></li>
-              <li><Link href="#" className="border-line">3</Link></li>
-              <li className="arrow next">
-                <Link href="#"><span className="icon-arrow-right right"></span></Link>
-              </li>
-            </ul>
           </div>
 
           {/* ✅ Lightbox Component */}

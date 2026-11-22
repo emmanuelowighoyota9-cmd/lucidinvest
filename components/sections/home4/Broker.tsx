@@ -111,7 +111,7 @@ export default function Broker() {
                 <div className="trader-broker-style1__text text-center">
                     <p>
                         Explore Our Answers to 100+ Questions.
-                        <Link href="#">
+                        <Link href="/register">
                             Read More faq&apos;s
                             <i className="icon-right-arrow"></i>
                         </Link>

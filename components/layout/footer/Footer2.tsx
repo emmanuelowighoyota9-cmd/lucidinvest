@@ -113,49 +113,49 @@ export default function Footer2() {
                                     <div className="footer-widget-links-style2">
                                         <ul className="clearfix">
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets1-trade-forex">
                                                     <i className="icon-right-arrow"></i>
                                                     Forex Trading
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets3-commodities-market">
                                                     <i className="icon-right-arrow"></i>
                                                     Commodities
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets">
                                                     <i className="icon-right-arrow"></i>
                                                     Indices
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets2-stock-market">
                                                     <i className="icon-right-arrow"></i>
                                                     Stocks
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets4-crypto-market">
                                                     <i className="icon-right-arrow"></i>
                                                     Cryptocurrencies
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets">
                                                     <i className="icon-right-arrow"></i>
                                                     ETFs
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets5-futures-market">
                                                     <i className="icon-right-arrow"></i>
                                                     Futures
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/markets">
                                                     <i className="icon-right-arrow"></i>
                                                     Bonds
                                                 </Link>
@@ -175,43 +175,43 @@ export default function Footer2() {
                                     <div className="footer-widget-links-style2">
                                         <ul className="clearfix">
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     <i className="icon-right-arrow"></i>
                                                     About Us
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/team">
                                                     <i className="icon-right-arrow"></i>
                                                     Leadership Team
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     <i className="icon-right-arrow"></i>
                                                     Press & Media
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     <i className="icon-right-arrow"></i>
                                                     Benefits
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     <i className="icon-right-arrow"></i>
                                                     Recognition
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     <i className="icon-right-arrow"></i>
                                                     Responsibility
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link href="#">
+                                                <Link href="/contact">
                                                     <i className="icon-right-arrow"></i>
                                                     Careers
                                                 </Link>
@@ -236,10 +236,10 @@ export default function Footer2() {
                                             data-wow-delay="000ms">
                                             <ul className="clearfix">
                                                 <li>
-                                                    <p><Link href="#">Privacy Policy</Link></p>
+                                                    <p><Link href="/privacy">Privacy Policy</Link></p>
                                                 </li>
                                                 <li>
-                                                    <p><Link href="#">Terms of Service</Link></p>
+                                                    <p><Link href="/terms">Terms of Service</Link></p>
                                                 </li>
                                             </ul>
                                         </div>

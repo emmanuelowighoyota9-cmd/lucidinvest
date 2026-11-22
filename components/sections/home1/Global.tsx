@@ -171,7 +171,7 @@ export default function Global() {
                         <div className="text-box">
                             <p>
                                 1.6 Million Traders Globally.
-                                <a href="#">
+                                <a href="/markets">
                                     Join With Us
                                     <i className="icon-right-arrow"></i>
                                 </a>

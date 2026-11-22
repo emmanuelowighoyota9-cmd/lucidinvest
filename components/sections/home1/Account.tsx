@@ -67,7 +67,7 @@ export default function Account() {
                             <SwiperSlide>
                                 <div className="single-account-style1">
                                     <div className="content-box">
-                                        <h3><Link href="#">Standard Account</Link></h3>
+                                        <h3><Link href="/accounts1-standard-account">Standard Account</Link></h3>
                                         <p>Mistaken idea denouncing pleasure of us ever undertakes secure...</p>
                                     </div>
                                     <div className="img-box">
@@ -84,7 +84,7 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#">
+                                        <Link href="/accounts1-standard-account">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -95,7 +95,7 @@ export default function Account() {
                             <SwiperSlide>
                                 <div className="single-account-style1">
                                     <div className="content-box">
-                                        <h3><Link href="#">Mini Account</Link></h3>
+                                        <h3><Link href="/accounts2-mini-account">Mini Account</Link></h3>
                                         <p>Cases are perfectly simple and easy to distinguish in a free hour...</p>
                                     </div>
                                     <div className="img-box">
@@ -109,7 +109,7 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#">
+                                        <Link href="/accounts2-mini-account">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -120,7 +120,7 @@ export default function Account() {
                             <SwiperSlide>
                                 <div className="single-account-style1">
                                     <div className="content-box">
-                                        <h3><Link href="#">STP Account</Link></h3>
+                                        <h3><Link href="/accounts3-stp-account">STP Account</Link></h3>
                                         <p>Holds in these matters to this principle of selection rejects pleasures...
                                         </p>
                                     </div>
@@ -135,7 +135,7 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#">
+                                        <Link href="/accounts3-stp-account">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -146,7 +146,7 @@ export default function Account() {
                             <SwiperSlide>
                                 <div className="single-account-style1">
                                     <div className="content-box">
-                                        <h3><Link href="#">Standard Account</Link></h3>
+                                        <h3><Link href="/accounts1-standard-account">Standard Account</Link></h3>
                                         <p>Mistaken idea denouncing pleasure of us ever undertakes secure...</p>
                                     </div>
                                     <div className="img-box">
@@ -163,7 +163,7 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#">
+                                        <Link href="/accounts1-standard-account">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -174,7 +174,7 @@ export default function Account() {
                             <SwiperSlide>
                                 <div className="single-account-style1">
                                     <div className="content-box">
-                                        <h3><Link href="#">Mini Account</Link></h3>
+                                        <h3><Link href="/accounts2-mini-account">Mini Account</Link></h3>
                                         <p>Cases are perfectly simple and easy to distinguish in a free hour...</p>
                                     </div>
                                     <div className="img-box">
@@ -188,7 +188,7 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#">
+                                        <Link href="/accounts2-mini-account">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -199,7 +199,7 @@ export default function Account() {
                             <SwiperSlide>
                                 <div className="single-account-style1">
                                     <div className="content-box">
-                                        <h3><Link href="#">STP Account</Link></h3>
+                                        <h3><Link href="/accounts3-stp-account">STP Account</Link></h3>
                                         <p>Holds in these matters to this principle of selection rejects pleasures...
                                         </p>
                                     </div>
@@ -214,7 +214,7 @@ export default function Account() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#">
+                                        <Link href="/accounts3-stp-account">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>

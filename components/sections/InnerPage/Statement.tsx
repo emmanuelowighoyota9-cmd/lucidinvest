@@ -84,7 +84,7 @@ export default function Statement() {
                                                         </li>
                                                     </ul>
                                                     <div className="btn-box">
-                                                        <Link href="#">
+                                                        <Link href="/register">
                                                             Start Your Journey
                                                             <i className="icon-right-arrow"></i>
                                                         </Link>
@@ -156,7 +156,7 @@ export default function Statement() {
                                                         </li>
                                                     </ul>
                                                     <div className="btn-box">
-                                                        <Link href="#">
+                                                        <Link href="/register">
                                                             Start Your Journey
                                                             <i className="icon-right-arrow"></i>
                                                         </Link>
@@ -227,7 +227,7 @@ export default function Statement() {
                                                         </li>
                                                     </ul>
                                                     <div className="btn-box">
-                                                        <Link href="#">
+                                                        <Link href="/register">
                                                             Start Your Journey
                                                             <i className="icon-right-arrow"></i>
                                                         </Link>

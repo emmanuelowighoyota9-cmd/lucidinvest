@@ -51,7 +51,7 @@ export default function About_Page() {
                                 <div className="about-style2__right">
                                     <div className="sec-title withtext">
                                         <div className="sub-title">
-                                            <h4>About Tradebro</h4>
+                                            <h4>About Lucid Global Invest</h4>
                                         </div>
                                         <h2>Gateway to Global Markets</h2>
                                         <div className="text">
@@ -116,13 +116,13 @@ export default function About_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>8+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/team">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">G.Davidson</Link></h3>
+                                        <h3><Link href="/team">G.Davidson</Link></h3>
                                         <p>Chief Executive Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -134,7 +134,7 @@ export default function About_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:getsupport@gmail.com">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -160,13 +160,13 @@ export default function About_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>5+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/team">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">K.Michael</Link></h3>
+                                        <h3><Link href="/team">K.Michael</Link></h3>
                                         <p>Chief Technology Officer</p>
                                     </div>
                                     <div className="bottom-box">
@@ -178,7 +178,7 @@ export default function About_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:getsupport@gmail.com">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -204,13 +204,13 @@ export default function About_Page() {
                                         </div>
                                         <div className="text-box">
                                             <h6>6+ years of experience in markets.</h6>
-                                            <Link href="#">
+                                            <Link href="/team">
                                                 <i className="icon-play"></i>
                                             </Link>
                                         </div>
                                     </div>
                                     <div className="middle-box">
-                                        <h3><Link href="#">M.Frederick</Link></h3>
+                                        <h3><Link href="/team">M.Frederick</Link></h3>
                                         <p>Head of Market Research</p>
                                     </div>
                                     <div className="bottom-box">
@@ -222,7 +222,7 @@ export default function About_Page() {
                                                         className="path6"></span>
                                                 </span>
                                             </div>
-                                            <Link href="mailto:getsupport@gmail.com">Email me</Link>
+                                            <Link href="mailto:support@lucidglobalinvest.com">Email me</Link>
                                         </div>
                                         <ul className="right">
                                             <li>
@@ -242,7 +242,7 @@ export default function About_Page() {
 
                         </div>
                         <div className="team-style1__btn">
-                            <Link href="#">
+                            <Link href="/team">
                                 View all Members
                                 <i className="icon-right-arrow"></i>
                             </Link>

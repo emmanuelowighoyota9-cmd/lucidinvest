@@ -43,10 +43,10 @@ export default function Courses_Details_Page() {
                                             </div>
                                         </div>
                                         <div className="social">
-                                            <Link href="#">
+                                            <Link href="/register">
                                                 <i className="icon-heart"></i>
                                             </Link>
-                                            <Link href="#">
+                                            <Link href="mailto:support@lucidglobalinvest.com?subject=Course%20enquiry">
                                                 <i className="icon-share-1"></i>
                                             </Link>
                                         </div>
@@ -127,7 +127,7 @@ export default function Courses_Details_Page() {
                                             </li>
                                         </ul>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/register">
                                                 <span className="txt">Buy Now</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>

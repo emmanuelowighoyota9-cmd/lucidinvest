@@ -12,9 +12,9 @@ export default function Choose() {
             <div className="big-title">
                 <Marquee speed={50} direction="right" pauseOnHover className="choose-style1-scrolling-text">
                     <ul className="list marquee_mode">
-                        <li className="item">Tradebro Tradebro</li>
-                        <li className="item">Tradebro Tradebro</li>
-                        <li className="item">Tradebro Tradebro</li>
+                        <li className="item">Lucid Global Invest</li>
+                        <li className="item">Lucid Global Invest</li>
+                        <li className="item">Lucid Global Invest</li>
                     </ul>
                 </Marquee>
             </div>
@@ -65,7 +65,7 @@ export default function Choose() {
                                             className="path8"></span></span>
                                 </div>
                                 <div className="title">
-                                    <h3><Link href="#">Friendly & Expert</Link></h3>
+                                    <h3><Link href="/about">Friendly & Expert</Link></h3>
                                 </div>
                                 <div className="text">
                                     <p>Duty or the obligation that business it will frequently occurs pleasure to be
@@ -100,7 +100,7 @@ export default function Choose() {
                                     </ul>
                                 </Marquee>
                                 <div className="title">
-                                    <h3><Link href="#">No Hidden Fees</Link></h3>
+                                    <h3><Link href="/about">No Hidden Fees</Link></h3>
                                 </div>
                                 <div className="text">
                                     <p>Right to find fault with a man who chooses to enjoy a pleasure that annoying
@@ -167,7 +167,7 @@ export default function Choose() {
                                             className="path8"></span></span>
                                 </div>
                                 <div className="title">
-                                    <h3><Link href="#">Regulated & Secure</Link></h3>
+                                    <h3><Link href="/about">Regulated & Secure</Link></h3>
                                 </div>
                                 <div className="text">
                                     <p>Frequently occur that pleasures have to be repudiated accepted always
@@ -201,7 +201,7 @@ export default function Choose() {
                                     </ul>
                                 </Marquee>
                                 <div className="title">
-                                    <h3><Link href="#">24/6 Support</Link></h3>
+                                    <h3><Link href="/about">24/6 Support</Link></h3>
                                 </div>
                                 <div className="text">
                                     <p>Great pleasure. To take a trivial example, which of us ever undertakes laborious.

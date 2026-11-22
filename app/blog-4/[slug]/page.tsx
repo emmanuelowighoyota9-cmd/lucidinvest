@@ -277,9 +277,9 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                         <h4>Post Tags</h4>
                     </div>
                     <ul className="clearfix">
-                        <li><Link href="#">Day Trading</Link></li>
-                        <li><Link href="#">Equities</Link></li>
-                        <li><Link href="#">ETF</Link></li>
+                        <li><Link href="/blog-4">Day Trading</Link></li>
+                        <li><Link href="/blog-4">Equities</Link></li>
+                        <li><Link href="/blog-4">ETF</Link></li>
                     </ul>
                 </div>
                 <div className="blog-details-author">
@@ -297,7 +297,7 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                                     advantage from itany right to find fault.</p>
                             </div>
                             <div className="btn-box">
-                                <Link href="#">
+                                <Link href="/blog-4">
                                     Read All Post
                                     <i className="icon-right-arrow"></i>
                                 </Link>
@@ -305,17 +305,17 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                             <div className="social-links">
                                 <ul>
                                     <li>
-                                        <Link href="#">
+                                        <Link href="/blog-4">
                                             <span className="icon-facebook"></span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
+                                        <Link href="/blog-4">
                                             <span className="icon-twitter"></span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
+                                        <Link href="/blog-4">
                                             <span className="icon-social"></span>
                                         </Link>
                                     </li>
@@ -328,13 +328,13 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                     <div className="single-box left">
                         <div className="title-box">
                             <div className="button-box">
-                                <Link href="#">
+                                <Link href="/blog-4">
                                     <span className="icon-right-arrow"></span>
                                     Prev Post
                                 </Link>
                             </div>
                             <h3>
-                                <Link href="#">
+                                <Link href="/blog-4">
                                     How Global Events are Shaping <br />Commodity Prices
                                 </Link>
                             </h3>
@@ -343,13 +343,13 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                     <div className="single-box right">
                         <div className="title-box">
                             <div className="button-box">
-                                <Link href="#">
+                                <Link href="/blog-4">
                                     Next Post
                                     <span className="icon-right-arrow"></span>
                                 </Link>
                             </div>
                             <h3>
-                                <Link href="#">
+                                <Link href="/blog-4">
                                     Understanding Leverage: The <br />Pros and Cons
                                 </Link>
                             </h3>
@@ -383,7 +383,7 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                                             great.</p>
                                     </div>
                                     <div className="btn-box">
-                                        <Link href="#">
+                                        <Link href="#add-comment-form">
                                             <i className="fa-solid fa fa-reply-all"></i>
                                             Reply
                                         </Link>
@@ -405,7 +405,7 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                                             advantages from it but who has any right to find fault.</p>
                                     </div>
                                     <div className="btn-box">
-                                        <Link href="#">
+                                        <Link href="#add-comment-form">
                                             <i className="fa-solid fa fa-reply-all"></i>
                                             Reply
                                         </Link>
@@ -498,7 +498,7 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                         "Learning Center",
                       ].map((cat) => (
                         <li key={cat}>
-                          <a href="#">
+                          <a href="/blog-4">
                             <p>
                               {cat} <span>(05)</span>
                             </p>
@@ -569,7 +569,7 @@ export default async function BlogSinglePage_Four({ params }: { params: Promise<
                         "New Traders",
                       ].map((tag) => (
                         <li key={tag}>
-                          <a href="#">{tag}</a>
+                          <a href="/blog-4">{tag}</a>
                         </li>
                       ))}
                     </ul>

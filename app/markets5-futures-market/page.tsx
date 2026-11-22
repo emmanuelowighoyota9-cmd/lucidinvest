@@ -57,7 +57,7 @@ export default function Features_Marketing() {
                                             </div>
                                         </div>
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/register">
                                                 Start Trading Now
                                                 <i className="icon-right-arrow"></i>
                                             </Link>

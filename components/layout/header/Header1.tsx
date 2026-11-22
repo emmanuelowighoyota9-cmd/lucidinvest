@@ -87,7 +87,7 @@ export default function Header1({ scroll, handleMobileMenu, handlePopup }: Heade
                                         </div>
                                         <div className="main-menu-style1__left">
                                             <div className="main-menu-box">
-                                                <Link href="#" className="mobile-nav__toggler" onClick={handleMobileMenu}>
+                                                <Link href="/register" className="mobile-nav__toggler" onClick={handleMobileMenu}>
                                                     <i className="fa fa-bars"></i>
                                                 </Link>
 

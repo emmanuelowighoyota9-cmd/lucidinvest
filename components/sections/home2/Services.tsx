@@ -49,7 +49,7 @@ export default function Service() {
                                         <p>Provide the tools you need.</p>
                                     </div>
                                     <div className="btn-box">
-                                        <Link className="btn-one" href="#">
+                                        <Link className="btn-one" href="/register">
                                             <span className="txt">Start Trading</span>
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -82,14 +82,14 @@ export default function Service() {
                                             <div className="title">
                                                 <span>We Offer</span>
                                                 <h3>
-                                                    <Link href="#">Technical Analysis</Link>
+                                                    <Link href="/contact">Technical Analysis</Link>
                                                 </h3>
                                             </div>
                                             <div className="text">
                                                 <p>Find fault with a man who chooses to annoying consequences.</p>
                                             </div>
                                             <div className="btn-box">
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     Read More
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
@@ -115,7 +115,7 @@ export default function Service() {
                                             <div className="title">
                                                 <span>We Offer</span>
                                                 <h3>
-                                                    <Link href="#">Trading Platforms</Link>
+                                                    <Link href="/contact">Trading Platforms</Link>
                                                 </h3>
                                             </div>
                                             <div className="text">
@@ -125,7 +125,7 @@ export default function Service() {
                                                 </p>
                                             </div>
                                             <div className="btn-box">
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     Read More
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
@@ -152,7 +152,7 @@ export default function Service() {
                                             <div className="title">
                                                 <span>We Offer</span>
                                                 <h3>
-                                                    <Link href="#">Account Management</Link>
+                                                    <Link href="/contact">Account Management</Link>
                                                 </h3>
                                             </div>
                                             <div className="text">
@@ -162,7 +162,7 @@ export default function Service() {
                                                 </p>
                                             </div>
                                             <div className="btn-box">
-                                                <Link href="#">
+                                                <Link href="/about">
                                                     Read More
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>
@@ -190,7 +190,7 @@ export default function Service() {
                                             <div className="title">
                                                 <span>We Offer</span>
                                                 <h3>
-                                                    <Link href="#">Educational Resources</Link>
+                                                    <Link href="/courses">Educational Resources</Link>
                                                 </h3>
                                             </div>
                                             <div className="text">
@@ -200,7 +200,7 @@ export default function Service() {
                                                 </p>
                                             </div>
                                             <div className="btn-box">
-                                                <Link href="#">
+                                                <Link href="/courses">
                                                     Read More
                                                     <i className="icon-right-arrow"></i>
                                                 </Link>

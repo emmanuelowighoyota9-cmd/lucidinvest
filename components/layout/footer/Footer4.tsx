@@ -32,7 +32,7 @@ export default function Footer4() {
                                 <h4>Need Help? We're Here for Every Trade!</h4>
                             </div>
                             <div className="btn-box">
-                                <Link href="#">
+                                <Link href="/contact">
                                     Request Help
                                     <i className="icon-right-arrow"></i>
                                 </Link>
@@ -54,7 +54,7 @@ export default function Footer4() {
                         <div className="title">
                             <h2>Make a Trade</h2>
                         </div>
-                        <Link href="#" className="btn-box">
+                        <Link href="/contact" className="btn-box">
                             <i className="icon-arrow-right"></i>
                         </Link>
                     </div>

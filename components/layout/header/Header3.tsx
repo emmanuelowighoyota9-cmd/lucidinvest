@@ -56,7 +56,7 @@ export default function Header3({ scroll, handleMobileMenu, handlePopup, handleS
                                 <div className="text">
                                     <p>
                                         Find Support in,
-                                        <Link href="#">
+                                        <Link href="/faq">
                                             Help Center
                                             <i className="icon-right-arrow"></i>
                                         </Link>

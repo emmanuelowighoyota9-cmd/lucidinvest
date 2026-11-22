@@ -81,7 +81,7 @@ export default function Awards() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Global Forex <br />Broker of the Year</Link></h3>
+                                        <h3><Link href="/about">Global Forex <br />Broker of the Year</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">
@@ -102,7 +102,7 @@ export default function Awards() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Most Transparent <br />FX Broker</Link></h3>
+                                        <h3><Link href="/about">Most Transparent <br />FX Broker</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">
@@ -123,7 +123,7 @@ export default function Awards() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Best Forex Rewards <br />Program</Link></h3>
+                                        <h3><Link href="/about">Best Forex Rewards <br />Program</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">
@@ -144,7 +144,7 @@ export default function Awards() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Global Forex <br />Broker of the Year</Link></h3>
+                                        <h3><Link href="/about">Global Forex <br />Broker of the Year</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">
@@ -165,7 +165,7 @@ export default function Awards() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Most Transparent <br />FX Broker</Link></h3>
+                                        <h3><Link href="/about">Most Transparent <br />FX Broker</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">
@@ -186,7 +186,7 @@ export default function Awards() {
                                         </span>
                                     </div>
                                     <div className="title">
-                                        <h3><Link href="#">Best Forex Rewards <br />Program</Link></h3>
+                                        <h3><Link href="/about">Best Forex Rewards <br />Program</Link></h3>
                                     </div>
                                     <div className="border-line"></div>
                                     <div className="text">

@@ -106,7 +106,7 @@ export default function Courses_Page() {
                                             <i className="icon-download"></i>
                                         </div>
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/courses-details">
                                                 Download Now
                                                 <i className="icon-right-arrow"></i>
                                             </Link>

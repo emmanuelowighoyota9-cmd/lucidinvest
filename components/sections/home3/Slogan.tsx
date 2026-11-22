@@ -39,20 +39,20 @@ export default function Slogan() {
                     <div className="contact-communicate">
                         <div className="contact-box box1">
                             <p>Have question?</p>
-                            <Link href="#">
+                            <Link href="/register">
                                 Explore our FAQ section
                                 <i className="icon-right-arrow"></i>
                             </Link>
                         </div>
                         <div className="icon-box">
-                            <Link href="#">
+                            <Link href="/register">
                                 <span className="icon-guide"><span className="path1"></span><span className="path2"></span><span
                                         className="path3"></span><span className="path4"></span><span className="path5"></span><span
                                         className="path6"></span><span className="path7"></span><span className="path8"></span><span
                                         className="path9"></span><span className="path10"></span>
                                 </span>
                             </Link>
-                            <Link href="#" className="box1">
+                            <Link href="/register" className="box1">
                                 <span className="icon-read"><span className="path1"></span><span className="path2"></span><span
                                         className="path3"></span><span className="path4"></span>
                                 </span>

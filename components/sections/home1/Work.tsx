@@ -76,7 +76,7 @@ export default function Work() {
                                         </div>
                                         <div className="content-box">
                                             <div className="title">
-                                                <h3><Link href="#">Open Your Account</Link></h3>
+                                                <h3><Link href="/register">Open Your Account</Link></h3>
                                                 <p>Always holds these matters to this principle of selection or else cases
                                                     he endures pains.</p>
                                             </div>
@@ -92,7 +92,7 @@ export default function Work() {
                                         </div>
                                         <div className="content-box">
                                             <div className="title">
-                                                <h3><Link href="#">Fund Your Account</Link></h3>
+                                                <h3><Link href="/register">Fund Your Account</Link></h3>
                                                 <p>Beguiled and demoralized the charms of pleasure of the moment, so blinded
                                                     by desire that they foresee.</p>
                                             </div>
@@ -108,7 +108,7 @@ export default function Work() {
                                         </div>
                                         <div className="content-box">
                                             <div className="title">
-                                                <h3><Link href="#">Choose Your Asset</Link></h3>
+                                                <h3><Link href="/markets">Choose Your Asset</Link></h3>
                                                 <p>Business it will frequently occur that pleasures have to be repudiated
                                                     and annoyances accepted.</p>
                                             </div>
@@ -124,7 +124,7 @@ export default function Work() {
                                         </div>
                                         <div className="content-box">
                                             <div className="title">
-                                                <h3><Link href="#">Open Your Account</Link></h3>
+                                                <h3><Link href="/register">Open Your Account</Link></h3>
                                                 <p>Always holds these matters to this principle of selection or else cases
                                                     he endures pains.</p>
                                             </div>
@@ -140,7 +140,7 @@ export default function Work() {
                                         </div>
                                         <div className="content-box">
                                             <div className="title">
-                                                <h3><Link href="#">Fund Your Account</Link></h3>
+                                                <h3><Link href="/register">Fund Your Account</Link></h3>
                                                 <p>Beguiled and demoralized the charms of pleasure of the moment, so blinded
                                                     by desire that they foresee.</p>
                                             </div>
@@ -156,7 +156,7 @@ export default function Work() {
                                         </div>
                                         <div className="content-box">
                                             <div className="title">
-                                                <h3><Link href="#">Choose Your Asset</Link></h3>
+                                                <h3><Link href="/markets">Choose Your Asset</Link></h3>
                                                 <p>Business it will frequently occur that pleasures have to be repudiated
                                                     and annoyances accepted.</p>
                                             </div>

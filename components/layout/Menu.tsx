@@ -25,7 +25,7 @@ export default function Menu() {
 
       {/* Markets */}
       <li className={`dropdown ${isCurrentOrPrefix(["/markets", "/markets1-trade-forex", "/markets2-stock-market", "/markets3-commodities-market", "/markets4-crypto-market", "/markets5-futures-market", "/markets6-options-market"]) ? "current" : ""}`}>
-        <Link href="#">Markets</Link>
+        <Link href="/markets">Markets</Link>
         <ul className="megamenu clearfix">
           <li className={isCurrentOrPrefix(["/markets"]) ? "current" : ""}>
             <Link href="/markets">All Markets</Link>
@@ -53,7 +53,7 @@ export default function Menu() {
 
 
       <li className={`dropdown ${isCurrentOrPrefix(["/courses", "/courses-details"]) ? "current" : ""}`}>
-        <Link href="#">Education</Link>
+        <Link href="/courses">Education</Link>
         <ul className="megamenu clearfix">
           <li className={isCurrentOrPrefix(["/courses"]) ? "current" : ""}>
             <Link href="/courses">Courses</Link>
@@ -66,7 +66,7 @@ export default function Menu() {
 
       {/* About */}
       <li className={`dropdown ${isCurrentOrPrefix(["/about", "/history", "/team", "/testimonials", "/faq", "/coming-soon"]) ? "current" : ""}`}>
-        <Link href="#">About</Link>
+        <Link href="/about">About</Link>
         <ul className="megamenu clearfix">
           <li className={isCurrentOrPrefix(["/about"]) ? "current" : ""}>
             <Link href="/about">About Us</Link>
@@ -89,7 +89,7 @@ export default function Menu() {
 
       {/* Blog */}
       <li className={`dropdown ${isCurrentOrPrefix(["/blog-1", "/blog-2", "/blog-3", "/blog-4", "/blog-single"]) ? "current" : ""}`}>
-        <Link href="#">Insights</Link>
+        <Link href="/blog-1">Insights</Link>
         <ul className="megamenu clearfix">
           <li className={isCurrentOrPrefix(["/blog-1"]) ? "current" : ""}>
             <Link href="/blog-1">Market News</Link>

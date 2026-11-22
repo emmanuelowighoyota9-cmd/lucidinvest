@@ -60,49 +60,49 @@ export default function Footer1() {
                                         <div className="footer-widget-links">
                                             <ul>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets1-trade-forex">
                                                         Forex Trading
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets3-commodities-market">
                                                         Commodities
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         Indices
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets2-stock-market">
                                                         Stocks
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets4-crypto-market">
                                                         Cryptocurrencies
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         ETFs
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets5-futures-market">
                                                         Futures
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/markets">
                                                         Bonds
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
@@ -121,25 +121,25 @@ export default function Footer1() {
                                         <div className="footer-widget-links">
                                             <ul>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/platform">
                                                         Web Trader
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/platform">
                                                         Meta Trader 4
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/platform">
                                                         Meta Trader 5
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/platform">
                                                         cTrader
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
@@ -156,13 +156,13 @@ export default function Footer1() {
                                         <div className="footer-widget-links">
                                             <ul>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/faq">
                                                         FAQ
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/contact">
                                                         Get in Touch
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
@@ -182,43 +182,43 @@ export default function Footer1() {
                                         <div className="footer-widget-links">
                                             <ul>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/about">
                                                         About Us
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/team">
                                                         Leadership Team
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/about">
                                                         Press & Media
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/about">
                                                         Benefits
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/about">
                                                         Recognition
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/about">
                                                         Responsibility
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="#">
+                                                    <Link href="/contact">
                                                         Careers
                                                         <i className="icon-right-arrow"></i>
                                                     </Link>
@@ -304,13 +304,13 @@ Copyrights © {new Date().getFullYear()} <Link href="/">Lucid Global Invest. </L
                             <div className="footer-menu wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="200ms">
                                 <ul className="clearfix">
                                     <li>
-                                        <Link href="#">Privacy Policy</Link>
+                                        <Link href="/privacy">Privacy Policy</Link>
                                     </li>
                                     <li>
-                                        <Link href="#">Terms of Service</Link>
+                                        <Link href="/terms">Terms of Service</Link>
                                     </li>
                                     <li>
-                                        <Link href="#">Risk Disclosure</Link>
+                                        <Link href="/risk-disclosure">Risk Disclosure</Link>
                                     </li>
                                 </ul>
                             </div>

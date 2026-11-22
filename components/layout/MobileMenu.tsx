@@ -61,7 +61,7 @@ export default function MobileMenu({ handleMobileMenu }: MobileMenuProps) {
 
               {/* Markets */}
               <li className={`dropdown ${activeDropdown === 2 ? "current" : ""}`}>
-                <Link href="#">Markets</Link>
+                <Link href="/markets">Markets</Link>
                 <ul style={{ display: activeDropdown === 2 ? "block" : "none" }}>
                   <li><Link href="/markets" onClick={handleMobileMenu}>All Markets</Link></li>
                   <li><Link href="/markets1-trade-forex" onClick={handleMobileMenu}>Trade Forex</Link></li>
@@ -78,7 +78,7 @@ export default function MobileMenu({ handleMobileMenu }: MobileMenuProps) {
 
               {/* Trading */}
               <li className={`dropdown ${activeDropdown === 3 ? "current" : ""}`}>
-                <Link href="#">Trading</Link>
+                <Link href="/accounts">Trading</Link>
                 <ul style={{ display: activeDropdown === 3 ? "block" : "none" }}>
                   <li><Link href="/accounts" onClick={handleMobileMenu}>All Accounts</Link></li>
                   <li><Link href="/platform" onClick={handleMobileMenu}>Platform</Link></li>
@@ -96,7 +96,7 @@ export default function MobileMenu({ handleMobileMenu }: MobileMenuProps) {
 
               {/* Education */}
               <li className={`dropdown ${activeDropdown === 4 ? "current" : ""}`}>
-                <Link href="#">Education</Link>
+                <Link href="/courses">Education</Link>
                 <ul style={{ display: activeDropdown === 4 ? "block" : "none" }}>
                   <li><Link href="/courses" onClick={handleMobileMenu}>Courses</Link></li>
                   <li><Link href="/courses-details" onClick={handleMobileMenu}>Course Details</Link></li>
@@ -108,7 +108,7 @@ export default function MobileMenu({ handleMobileMenu }: MobileMenuProps) {
 
               {/* About */}
               <li className={`dropdown ${activeDropdown === 5 ? "current" : ""}`}>
-                <Link href="#">About</Link>
+                <Link href="/about">About</Link>
                 <ul style={{ display: activeDropdown === 5 ? "block" : "none" }}>
                   <li><Link href="/about" onClick={handleMobileMenu}>About Us</Link></li>
                   <li><Link href="/history" onClick={handleMobileMenu}>History</Link></li>
@@ -123,7 +123,7 @@ export default function MobileMenu({ handleMobileMenu }: MobileMenuProps) {
 
                 {/* Blog */}
                 <li className={`dropdown ${activeDropdown === 6 ? "current" : ""}`}>
-                  <Link href="#">Insights</Link>
+                  <Link href="/blog-1">Insights</Link>
                   <ul style={{ display: activeDropdown === 6 ? "block" : "none" }}>
                     <li>
                       <Link href="/blog-1" onClick={handleMobileMenu}>
@@ -177,10 +177,10 @@ export default function MobileMenu({ handleMobileMenu }: MobileMenuProps) {
               </li>
           </ul>
           <div className="mobile-nav__social">
-              <Link href="#" className="fab fa-twitter"></Link>
-              <Link href="#" className="fab fa-facebook-square"></Link>
-              <Link href="#" className="fab fa-pinterest-p"></Link>
-              <Link href="#" className="fab fa-instagram"></Link>
+              <Link href="https://www.twitter.com/" className="fab fa-twitter"></Link>
+              <Link href="https://www.facebook.com/" className="fab fa-facebook-square"></Link>
+              <Link href="https://www.pinterest.com/" className="fab fa-pinterest-p"></Link>
+              <Link href="https://www.instagram.com/" className="fab fa-instagram"></Link>
           </div>
         </div>
 

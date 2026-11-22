@@ -43,7 +43,7 @@ export default function CoursesDetails() {
                             </div>
                             <ul className="syllabus">
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-video-camera"></i>
@@ -59,7 +59,7 @@ export default function CoursesDetails() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-video-camera"></i>
@@ -75,7 +75,7 @@ export default function CoursesDetails() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-volume-up"></i>
@@ -161,7 +161,7 @@ export default function CoursesDetails() {
                             </div>
                             <ul className="syllabus">
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-video-camera"></i>
@@ -177,7 +177,7 @@ export default function CoursesDetails() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-video-camera"></i>
@@ -193,7 +193,7 @@ export default function CoursesDetails() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-volume-up"></i>
@@ -279,7 +279,7 @@ export default function CoursesDetails() {
                             </div>
                             <ul className="syllabus">
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-video-camera"></i>
@@ -295,7 +295,7 @@ export default function CoursesDetails() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-video-camera"></i>
@@ -311,7 +311,7 @@ export default function CoursesDetails() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/contact">
                                         <div className="left-box">
                                             <div className="icon">
                                                 <i className="icon-volume-up"></i>

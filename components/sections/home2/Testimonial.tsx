@@ -41,7 +41,7 @@ export default function Testimonial() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#" className="logo">
+                                        <Link href="/about" className="logo">
                                             <Image src="/assets/images/testimonial/testimonial-v2-logo1.png" alt="Logo" width={114} height={25} priority />
                                         </Link>
                                         <div className="author-box">
@@ -78,7 +78,7 @@ export default function Testimonial() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#" className="logo">
+                                        <Link href="/about" className="logo">
                                             <Image src="/assets/images/testimonial/testimonial-v2-logo2.png" alt="Logo" width={141} height={25} priority />
                                         </Link>
                                         <div className="author-box">
@@ -114,7 +114,7 @@ export default function Testimonial() {
                                         </div>
                                     </div>
                                     <div className="bottom-box">
-                                        <Link href="#" className="logo">
+                                        <Link href="/about" className="logo">
                                             <Image src="/assets/images/testimonial/testimonial-v2-logo3.png" alt="Logo" width={151} height={25} priority />
                                         </Link>
                                         <div className="author-box">

@@ -85,7 +85,7 @@ export default function Banner() {
                                     </div>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="" href="#">
+                                    <Link className="" href="/register">
                                         More
                                         <span className="icon-right-arrow"></span>
                                     </Link>
@@ -126,7 +126,7 @@ export default function Banner() {
                                     </div>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="" href="#">
+                                    <Link className="" href="/register">
                                         More
                                         <span className="icon-right-arrow"></span>
                                     </Link>
@@ -167,7 +167,7 @@ export default function Banner() {
                                     </div>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="" href="#">
+                                    <Link className="" href="/register">
                                         More
                                         <span className="icon-right-arrow"></span>
                                     </Link>

@@ -59,7 +59,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Strategies for Successful Day Trading</a>
+                                                            <a href="/courses-details">Strategies for Successful Day Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -85,7 +85,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Mastering the Basics of Forex Trading</a>
+                                                            <a href="/courses-details">Mastering the Basics of Forex Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -111,7 +111,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Navigating Forex Trading for Beginners</a>
+                                                            <a href="/courses-details">Navigating Forex Trading for Beginners</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -137,7 +137,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Navigating Forex Trading for Beginners</a>
+                                                            <a href="/courses-details">Navigating Forex Trading for Beginners</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -163,7 +163,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Strategies for Successful Day Trading</a>
+                                                            <a href="/courses-details">Strategies for Successful Day Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -189,7 +189,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Mastering the Basics of Forex Trading</a>
+                                                            <a href="/courses-details">Mastering the Basics of Forex Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -227,7 +227,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Strategies for Successful Day Trading</a>
+                                                            <a href="/courses-details">Strategies for Successful Day Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -253,7 +253,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Mastering the Basics of Forex Trading</a>
+                                                            <a href="/courses-details">Mastering the Basics of Forex Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -279,7 +279,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Navigating Forex Trading for Beginners</a>
+                                                            <a href="/courses-details">Navigating Forex Trading for Beginners</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -305,7 +305,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Navigating Forex Trading for Beginners</a>
+                                                            <a href="/courses-details">Navigating Forex Trading for Beginners</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -331,7 +331,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Strategies for Successful Day Trading</a>
+                                                            <a href="/courses-details">Strategies for Successful Day Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">
@@ -357,7 +357,7 @@ export default function Courses() {
                                                     </div>
                                                     <div className="content-box">
                                                         <h3>
-                                                            <a href="#">Mastering the Basics of Forex Trading</a>
+                                                            <a href="/courses-details">Mastering the Basics of Forex Trading</a>
                                                         </h3>
                                                     </div>
                                                     <div className="bottom-box">

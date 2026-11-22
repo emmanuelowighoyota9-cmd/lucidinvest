@@ -67,7 +67,7 @@ export default function Banner() {
                         <Image src="/assets/images/slides/slider-v1-mockup.png" alt="Image" width={235} height={176} priority />
                     </div>
                     <div className="btn-box">
-                        <Link className="btn-one" href="#">
+                        <Link className="btn-one" href="/accounts4-demo-account">
                             <span className="txt">Start Demo</span>
                             <i className="icon-right-arrow"></i>
                         </Link>
@@ -100,7 +100,7 @@ export default function Banner() {
                         </div>
                     </div>
                     <div className="btn-box">
-                        <Link href="#">
+                        <Link href="/register">
                             Read Reviews
                             <i className="icon-right-arrow"></i>
                         </Link>
@@ -121,21 +121,21 @@ export default function Banner() {
                         <span className="icon-success"><span className="path1"></span><span className="path2"></span><span
                                 className="path3"></span></span>
                     </div>
-                    <p>Stay Informed, <Link href="#">Subscribe</Link> Now!</p>
+                    <p>Stay Informed, <Link href="/register">Subscribe</Link> Now!</p>
                 </li>
                 <li>
                     <div className="icon">
                         <span className="icon-success"><span className="path1"></span><span className="path2"></span><span
                                 className="path3"></span></span>
                     </div>
-                    <p>Trading with a <Link href="#">Free Demo</Link> Account!</p>
+                    <p>Trading with a <Link href="/accounts4-demo-account">Free Demo</Link> Account!</p>
                 </li>
                 <li>
                     <div className="icon">
                         <span className="icon-success"><span className="path1"></span><span className="path2"></span><span
                                 className="path3"></span></span>
                     </div>
-                    <p>Download our Free <Link href="#">eBooks</Link></p>
+                    <p>Download our Free <Link href="/courses">eBooks</Link></p>
                 </li>
             </ul>
 

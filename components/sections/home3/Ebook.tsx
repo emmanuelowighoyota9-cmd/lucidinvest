@@ -97,7 +97,7 @@ export default function Ebook() {
                                     <i className="icon-download"></i>
                                 </div>
                                 <div className="btn-box">
-                                    <Link href="#">
+                                    <Link href="/courses">
                                         Download Now
                                         <i className="icon-right-arrow"></i>
                                     </Link>

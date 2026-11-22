@@ -104,7 +104,7 @@ export default function Trade() {
                                 </div>
                                 <h3>
                                     <Link className="video-popup"
-                                        href="#">
+                                        href="/register">
                                         How to Use<br /> Our Calculator...
                                     </Link>
                                 </h3>

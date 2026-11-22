@@ -78,7 +78,7 @@ export default function Account() {
                                                                         in their duty as saying through shrinking.</p>
                                                                 </div>
                                                                 <div className="btn-box">
-                                                                    <Link href="#">
+                                                                    <Link href="/register">
                                                                         Open Your Account
                                                                         <i className="icon-right-arrow"></i>
                                                                     </Link>
@@ -125,7 +125,7 @@ export default function Account() {
                                                                         in their duty as saying through shrinking.</p>
                                                                 </div>
                                                                 <div className="btn-box">
-                                                                    <Link href="#">
+                                                                    <Link href="/register">
                                                                         Open Your Account
                                                                         <i className="icon-right-arrow"></i>
                                                                     </Link>
@@ -171,7 +171,7 @@ export default function Account() {
                                                                         in their duty as saying through shrinking.</p>
                                                                 </div>
                                                                 <div className="btn-box">
-                                                                    <Link href="#">
+                                                                    <Link href="/register">
                                                                         Open Your Account
                                                                         <i className="icon-right-arrow"></i>
                                                                     </Link>
@@ -216,7 +216,7 @@ export default function Account() {
                                                                         in their duty as saying through shrinking.</p>
                                                                 </div>
                                                                 <div className="btn-box">
-                                                                    <Link href="#">
+                                                                    <Link href="/register">
                                                                         Open Your Account
                                                                         <i className="icon-right-arrow"></i>
                                                                     </Link>

@@ -151,18 +151,6 @@ export default function Blog_Page_Three() {
                             </div>
                         </div>
                         ))}
-
-                        <ul className="styled-pagination clearfix">
-                            <li className="arrow prev">
-                                <Link href="#"><span className="icon-arrow-left left"></span></Link>
-                            </li>
-                            <li className="active"><Link href="#">1</Link></li>
-                            <li><Link href="#">2</Link></li>
-                            <li><Link href="#" className="border-line">3</Link></li>
-                            <li className="arrow next">
-                                <Link href="#"><span className="icon-arrow-right right"></span></Link>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <div className="col-xl-4">
@@ -196,7 +184,7 @@ export default function Blog_Page_Three() {
                         "Learning Center",
                       ].map((cat) => (
                         <li key={cat}>
-                          <a href="#">
+                          <a href="/blog-3">
                             <p>
                               {cat} <span>(05)</span>
                             </p>
@@ -267,7 +255,7 @@ export default function Blog_Page_Three() {
                         "New Traders",
                       ].map((tag) => (
                         <li key={tag}>
-                          <a href="#">{tag}</a>
+                          <a href="/blog-3">{tag}</a>
                         </li>
                       ))}
                     </ul>

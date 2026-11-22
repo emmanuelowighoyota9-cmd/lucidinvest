@@ -85,22 +85,22 @@ const SidebarPopup: React.FC<SidebarPopupProps> = ({ isOpen, onClose }) => {
                             <div className="thm-social-link">
                                 <ul className="clearfix">
                                     <li>
-                                        <Link href="#">
+                                        <Link href="https://www.facebook.com/">
                                             <i className="icon-facebook"></i>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
+                                        <Link href="https://www.twitter.com/">
                                             <i className="icon-twitter"></i>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
+                                        <Link href="/contact">
                                             <i className="icon-social"></i>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="#">
+                                        <Link href="https://www.youtube.com/">
                                             <i className="icon-youtube"></i>
                                         </Link>
                                     </li>

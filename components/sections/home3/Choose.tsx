@@ -37,7 +37,7 @@ export default function Choose() {
                                 </div>
                             </div>
                             <div className="content-box">
-                                <h3><Link href="#">Friendly & Expert</Link></h3>
+                                <h3><Link href="/about">Friendly & Expert</Link></h3>
                                 <p>Duty or the obligation that business pleasure to be repudiated.</p>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ export default function Choose() {
                                 </div>
                             </div>
                             <div className="content-box">
-                                <h3><Link href="#">Regulated & Secure</Link></h3>
+                                <h3><Link href="/about">Regulated & Secure</Link></h3>
                                 <p>Trouble that are bound to ensue and equal blame belongs.</p>
                             </div>
                         </div>
@@ -78,7 +78,7 @@ export default function Choose() {
                                 </div>
                             </div>
                             <div className="content-box">
-                                <h3><Link href="#">No Hidden Fees</Link></h3>
+                                <h3><Link href="/about">No Hidden Fees</Link></h3>
                                 <p>Power of choice untrammelled and when nothing prevents.</p>
                             </div>
                         </div>
@@ -98,7 +98,7 @@ export default function Choose() {
                                 </div>
                             </div>
                             <div className="content-box">
-                                <h3><Link href="#">Trusted Broker</Link></h3>
+                                <h3><Link href="/about">Trusted Broker</Link></h3>
                                 <p>Power of choice untrammelled and when nothing prevents.</p>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ export default function Choose() {
                                 </div>
                             </div>
                             <div className="content-box">
-                                <h3><Link href="#">Global Market Access</Link></h3>
+                                <h3><Link href="/markets">Global Market Access</Link></h3>
                                 <p>Duty or the obligation that business pleasure to be repudiated.</p>
                             </div>
                         </div>
@@ -137,7 +137,7 @@ export default function Choose() {
                                 </div>
                             </div>
                             <div className="content-box">
-                                <h3><Link href="#">24/6 Market Access</Link></h3>
+                                <h3><Link href="/platform">24/6 Market Access</Link></h3>
                                 <p>Trouble that are bound to ensue and equal blame belongs.</p>
                             </div>
                         </div>

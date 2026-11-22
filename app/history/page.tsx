@@ -25,14 +25,14 @@ export default function History_Page() {
                                 <div className="content-box">
                                     <div className="title">
                                         <h6>Early Stage</h6>
-                                        <h3><Link href="#">The Establishment</Link></h3>
+                                        <h3><Link href="/about">The Establishment</Link></h3>
                                     </div>
                                     <div className="text">
                                         <p>Denounce with righteous indigation dislike men who are so beguiled and demoralized by
                                             pleasure of the moment.</p>
                                     </div>
                                     <div className="btn-box">
-                                        <Link href="#">
+                                        <Link href="/about">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -52,14 +52,14 @@ export default function History_Page() {
                                 <div className="content-box">
                                     <div className="title">
                                         <h6>First Award</h6>
-                                        <h3><Link href="#">Transparent Fx Broker</Link></h3>
+                                        <h3><Link href="/about">Transparent Fx Broker</Link></h3>
                                     </div>
                                     <div className="text">
                                         <p>Owing to the claims of duty or the obliga- tions business it will frequently occurs
                                             that</p>
                                     </div>
                                     <div className="btn-box">
-                                        <Link href="#">
+                                        <Link href="/about">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -79,13 +79,13 @@ export default function History_Page() {
                                 <div className="content-box">
                                     <div className="title">
                                         <h6>New Headquarter</h6>
-                                        <h3><Link href="#">Moved headquarters to USA</Link></h3>
+                                        <h3><Link href="/about">Moved headquarters to USA</Link></h3>
                                     </div>
                                     <div className="text">
                                         <p>Righteous indigation dislike men who are so beguiled and demoralized.</p>
                                     </div>
                                     <div className="btn-box">
-                                        <Link href="#">
+                                        <Link href="/about">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>
@@ -105,14 +105,14 @@ export default function History_Page() {
                                 <div className="content-box">
                                     <div className="title">
                                         <h6>Milestone</h6>
-                                        <h3><Link href="#">1m Traders Trusted Us</Link></h3>
+                                        <h3><Link href="/about">1m Traders Trusted Us</Link></h3>
                                     </div>
                                     <div className="text">
                                         <p>Denounce with righteous indigation dislike men who are so beguiled and demoralized by
                                             pleasure of the moment.</p>
                                     </div>
                                     <div className="btn-box">
-                                        <Link href="#">
+                                        <Link href="/about">
                                             Read More
                                             <i className="icon-right-arrow"></i>
                                         </Link>

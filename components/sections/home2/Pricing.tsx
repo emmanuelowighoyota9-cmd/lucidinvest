@@ -10,7 +10,7 @@ export default function Price() {
                 <ul>
                     <li>
                         <div className="left-box">
-                            <Link href="#" className="icon icon1">
+                            <Link href="/platform" className="icon icon1">
                                 <i className="icon-right-down"></i>
                             </Link>
                             <div className="text-box">
@@ -33,7 +33,7 @@ export default function Price() {
                     </li>
                     <li>
                         <div className="left-box">
-                            <Link href="#" className="icon">
+                            <Link href="/platform" className="icon">
                                 <i className="icon-right-up"></i>
                             </Link>
                             <div className="text-box">
@@ -56,7 +56,7 @@ export default function Price() {
                     </li>
                     <li>
                         <div className="left-box">
-                            <Link href="#" className="icon">
+                            <Link href="/platform" className="icon">
                                 <i className="icon-right-up"></i>
                             </Link>
                             <div className="text-box">
@@ -79,7 +79,7 @@ export default function Price() {
                     </li>
                     <li>
                         <div className="left-box">
-                            <Link href="#" className="icon icon1">
+                            <Link href="/platform" className="icon icon1">
                                 <i className="icon-right-down"></i>
                             </Link>
                             <div className="text-box">
@@ -102,7 +102,7 @@ export default function Price() {
                     </li>
                     <li>
                         <div className="left-box">
-                            <Link href="#" className="icon">
+                            <Link href="/platform" className="icon">
                                 <i className="icon-right-up"></i>
                             </Link>
                             <div className="text-box">

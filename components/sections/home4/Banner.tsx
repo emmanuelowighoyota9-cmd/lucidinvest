@@ -59,7 +59,7 @@ export default function Banner() {
                   <i className="icon-candle"></i>
                 </div>
                 <div className="text">
-                  <Link href="#">
+                  <Link href="/register">
                     Start <br />Trading Now
                     <i className="icon-right-arrow"></i>
                   </Link>
@@ -83,7 +83,7 @@ export default function Banner() {
                   <i className="icon-candle"></i>
                 </div>
                 <div className="text">
-                  <Link href="#">
+                  <Link href="/register">
                     Start <br />Trading Now
                     <i className="icon-right-arrow"></i>
                   </Link>
@@ -107,7 +107,7 @@ export default function Banner() {
                   <i className="icon-candle"></i>
                 </div>
                 <div className="text">
-                  <Link href="#">
+                  <Link href="/register">
                     Start <br />Trading Now
                     <i className="icon-right-arrow"></i>
                   </Link>
@@ -134,7 +134,7 @@ export default function Banner() {
               <p>Platforms for <br />Traders</p>
             </div>
             <div className="btn-box">
-              <Link href="#">
+              <Link href="/register">
                 Download Here
                 <i className="icon-right-arrow"></i>
               </Link>
@@ -187,7 +187,7 @@ export default function Banner() {
               </div>
             </div>
             <div className="mobile-app__btn">
-              <Link href="#">
+              <Link href="/register">
                 Download
                 <i className="icon-right-arrow"></i>
               </Link>

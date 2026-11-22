@@ -39,19 +39,19 @@ export default function Partners() {
                         <div className="partner-style1__brand">
                             <ul className="clearfix">
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/about">
                                         <Image src="/assets/images/brand/brand-1-1.png" alt="Image" width={285} height={150} priority />
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/about">
                                         <Image src="/assets/images/brand/brand-1-2.png" alt="Image" width={285} height={150} priority />
                                     </Link>
                                 </li>
                             </ul>
                             <ul className="middle-box clearfix">
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/about">
                                         <Image src="/assets/images/brand/brand-1-3.png" alt="Image" width={285} height={150} priority />
                                     </Link>
                                 </li>
@@ -65,19 +65,19 @@ export default function Partners() {
                                     </div>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/about">
                                         <Image src="/assets/images/brand/brand-1-4.png" alt="Image" width={285} height={150} priority />
                                     </Link>
                                 </li>
                             </ul>
                             <ul className="clearfix">
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/about">
                                         <Image src="/assets/images/brand/brand-1-5.png" alt="Image" width={285} height={150} priority />
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#">
+                                    <Link href="/about">
                                         <Image src="/assets/images/brand/brand-1-6.png" alt="Image" width={285} height={150} priority />
                                     </Link>
                                 </li>

@@ -57,7 +57,7 @@ export default function Options_Market() {
                                             </div>
                                         </div>
                                         <div className="btn-box">
-                                            <Link href="#">
+                                            <Link href="/register">
                                                 Start Trading Now
                                                 <i className="icon-right-arrow"></i>
                                             </Link>

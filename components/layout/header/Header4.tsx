@@ -106,7 +106,7 @@ export default function Header4({ scroll, handleMobileMenu }: Header4Props) {
                         </div>
                         <div className="main-menu-style1__left">
                             <div className="main-menu-box">
-                                <Link href="#" className="mobile-nav__toggler" onClick={handleMobileMenu}>
+                                <Link href="/register" className="mobile-nav__toggler" onClick={handleMobileMenu}>
                                     <i className="fa fa-bars"></i>
                                 </Link>
 

@@ -33,7 +33,7 @@ export default function Market() {
                                 </div>
                                 <div className="title">
                                     <h3>
-                                        <Link href="#">Trade Forex</Link>
+                                        <Link href="/markets1-trade-forex">Trade Forex</Link>
                                     </h3>
                                 </div>
                                 <div className="text">
@@ -47,7 +47,7 @@ export default function Market() {
                                     <p>Beguiled and demoralized by the charms of pleasure of the moment...</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="btn-one" href="#">
+                                    <Link className="btn-one" href="/markets1-trade-forex">
                                         <span className="txt">Read More</span>
                                         <i className="icon-right-arrow"></i>
                                     </Link>
@@ -73,7 +73,7 @@ export default function Market() {
                                 </div>
                                 <div className="title">
                                     <h3>
-                                        <Link href="#">Stock Market</Link>
+                                        <Link href="/markets2-stock-market">Stock Market</Link>
                                     </h3>
                                 </div>
                                 <div className="text">
@@ -85,7 +85,7 @@ export default function Market() {
                                     <p>Moment so blinded desire that they cannot foresee all are bound ensue...</p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="btn-one" href="#">
+                                    <Link className="btn-one" href="/markets2-stock-market">
                                         <span className="txt">Read More</span>
                                         <i className="icon-right-arrow"></i>
                                     </Link>
@@ -111,7 +111,7 @@ export default function Market() {
                                 </div>
                                 <div className="title">
                                     <h3>
-                                        <Link href="#">Commodities Market</Link>
+                                        <Link href="/markets3-commodities-market">Commodities Market</Link>
                                     </h3>
                                 </div>
                                 <div className="text">
@@ -128,7 +128,7 @@ export default function Market() {
                                     </p>
                                 </div>
                                 <div className="btn-box">
-                                    <Link className="btn-one" href="#">
+                                    <Link className="btn-one" href="/markets3-commodities-market">
                                         <span className="txt">Read More</span>
                                         <i className="icon-right-arrow"></i>
                                     </Link>

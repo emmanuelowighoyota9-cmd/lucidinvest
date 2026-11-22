@@ -81,7 +81,7 @@ export default function Highlights() {
                                     </span>
                                 </div>
                                 <div className="content-box">
-                                    <h3><Link href="#">Friendly & Expert</Link></h3>
+                                    <h3><Link href="/about">Friendly & Expert</Link></h3>
                                     <p>Duty or the obligation that business it will frequently occurs pleasure to be
                                         repudiated right extremely.</p>
                                 </div>
@@ -107,7 +107,7 @@ export default function Highlights() {
                                     </span>
                                 </div>
                                 <div className="content-box">
-                                    <h3><Link href="#">Regulated & Secure</Link></h3>
+                                    <h3><Link href="/about">Regulated & Secure</Link></h3>
                                     <p>It will frequently occur that pleasures have to be repudiated and annoyances
                                         accepted
                                         perfectly.</p>
@@ -134,7 +134,7 @@ export default function Highlights() {
                                     </span>
                                 </div>
                                 <div className="content-box">
-                                    <h3><Link href="#">24/5 Support</Link></h3>
+                                    <h3><Link href="/contact">24/5 Support</Link></h3>
                                     <p>Complete account of the system and expound the actual teachings of the great
                                         explorer
                                         of the truth.</p>
@@ -162,7 +162,7 @@ export default function Highlights() {
                                     </span>
                                 </div>
                                 <div className="content-box">
-                                    <h3><Link href="#">Friendly & Expert</Link></h3>
+                                    <h3><Link href="/about">Friendly & Expert</Link></h3>
                                     <p>Duty or the obligation that business it will frequently occurs pleasure to be
                                         repudiated right extremely.</p>
                                 </div>
@@ -188,7 +188,7 @@ export default function Highlights() {
                                     </span>
                                 </div>
                                 <div className="content-box">
-                                    <h3><Link href="#">Regulated & Secure</Link></h3>
+                                    <h3><Link href="/about">Regulated & Secure</Link></h3>
                                     <p>It will frequently occur that pleasures have to be repudiated and annoyances
                                         accepted
                                         perfectly.</p>
@@ -215,7 +215,7 @@ export default function Highlights() {
                                     </span>
                                 </div>
                                 <div className="content-box">
-                                    <h3><Link href="#">24/5 Support</Link></h3>
+                                    <h3><Link href="/contact">24/5 Support</Link></h3>
                                     <p>Complete account of the system and expound the actual teachings of the great
                                         explorer
                                         of the truth.</p>

@@ -35,7 +35,7 @@ export default function Markets_Page() {
                                         </div>
                                         <div className="title">
                                             <h3>
-                                                <Link href="markets1-trade-forex.html">Trade Forex</Link>
+                                                <Link href="/markets1-trade-forex">Trade Forex</Link>
                                             </h3>
                                         </div>
                                         <div className="text">
@@ -49,7 +49,7 @@ export default function Markets_Page() {
                                             <p>Beguiled and demoralized by the charms of pleasure of the moment...</p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/markets1-trade-forex">
                                                 <span className="txt">Read More</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -73,7 +73,7 @@ export default function Markets_Page() {
                                         </div>
                                         <div className="title">
                                             <h3>
-                                                <Link href="markets2-stock-market.html">Stock Market</Link>
+                                                <Link href="/markets2-stock-market">Stock Market</Link>
                                             </h3>
                                         </div>
                                         <div className="text">
@@ -85,7 +85,7 @@ export default function Markets_Page() {
                                             <p>Moment so blinded desire that they cannot foresee all are bound ensue...</p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/markets2-stock-market">
                                                 <span className="txt">Read More</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -109,7 +109,7 @@ export default function Markets_Page() {
                                         </div>
                                         <div className="title">
                                             <h3>
-                                                <Link href="markets3-commodities-market.html">Commodities Market</Link>
+                                                <Link href="/markets3-commodities-market">Commodities Market</Link>
                                             </h3>
                                         </div>
                                         <div className="text">
@@ -126,7 +126,7 @@ export default function Markets_Page() {
                                             </p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/markets3-commodities-market">
                                                 <span className="txt">Read More</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -150,7 +150,7 @@ export default function Markets_Page() {
                                         </div>
                                         <div className="title">
                                             <h3>
-                                                <Link href="markets4-crypto-market.html">Crypto Market</Link>
+                                                <Link href="/markets4-crypto-market">Crypto Market</Link>
                                             </h3>
                                         </div>
                                         <div className="text">
@@ -167,7 +167,7 @@ export default function Markets_Page() {
                                             </p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/markets4-crypto-market">
                                                 <span className="txt">Read More</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -191,7 +191,7 @@ export default function Markets_Page() {
                                         </div>
                                         <div className="title">
                                             <h3>
-                                                <Link href="markets5-futures-market.html">Futures Market</Link>
+                                                <Link href="/markets5-futures-market">Futures Market</Link>
                                             </h3>
                                         </div>
                                         <div className="text">
@@ -205,7 +205,7 @@ export default function Markets_Page() {
                                             <p>Beguiled and demoralized by the charms of pleasure of the moment...</p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/markets5-futures-market">
                                                 <span className="txt">Read More</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -229,7 +229,7 @@ export default function Markets_Page() {
                                         </div>
                                         <div className="title">
                                             <h3>
-                                                <Link href="markets6-options-market.html">Options Market</Link>
+                                                <Link href="/markets6-options-market">Options Market</Link>
                                             </h3>
                                         </div>
                                         <div className="text">
@@ -241,7 +241,7 @@ export default function Markets_Page() {
                                             <p>Moment so blinded desire that they cannot foresee all are bound ensue...</p>
                                         </div>
                                         <div className="btn-box">
-                                            <Link className="btn-one" href="#">
+                                            <Link className="btn-one" href="/markets6-options-market">
                                                 <span className="txt">Read More</span>
                                                 <i className="icon-right-arrow"></i>
                                             </Link>
@@ -266,7 +266,7 @@ export default function Markets_Page() {
                             <div className="slogan-style2__big-title">
                                 <Marquee speed={30} direction="left" pauseOnHover className="slogan-style2-scrolling-text">
                                     <ul className="list marquee_mode-rightToLeft">
-                                        <li className="item">Tradebro</li>
+                                        <li className="item">Lucid Global Invest</li>
                                     </ul>
                                 </Marquee>
                             </div>
