@@ -179,6 +179,7 @@ export type Summary = {
   accountCount: number;
   activeAccounts: number;
   investmentCount: number;
+  pendingInvestmentCount: number;
   openSessions: number;
   totalsByCurrency: { currency: string; total: string }[];
 };
@@ -192,15 +193,17 @@ export async function getSummary(userId: string): Promise<Summary> {
       FROM customer_accounts
       WHERE user_id = ${userId}
     `),
-    rows<{ total: number }>(await sql`
-      SELECT count(*)::int AS total
+    rows<{ active: number; pending: number }>(await sql`
+      SELECT count(*) FILTER (WHERE status = 'active')::int AS active,
+             count(*) FILTER (WHERE status = 'pending')::int AS pending
       FROM investments
-      WHERE user_id = ${userId} AND status IN ('pending', 'active')
+      WHERE user_id = ${userId}
     `),
+    // Only funded, live positions are portfolio principal; pending requests are not.
     rows<{ currency: string; total: string }>(await sql`
       SELECT currency, sum(principal)::text AS total
       FROM investments
-      WHERE user_id = ${userId} AND status IN ('pending', 'active')
+      WHERE user_id = ${userId} AND status = 'active'
       GROUP BY currency
       ORDER BY currency
     `),
@@ -214,7 +217,8 @@ export async function getSummary(userId: string): Promise<Summary> {
   return {
     accountCount: Number(accountStats[0]?.total ?? 0),
     activeAccounts: Number(accountStats[0]?.active ?? 0),
-    investmentCount: Number(investmentStats[0]?.total ?? 0),
+    investmentCount: Number(investmentStats[0]?.active ?? 0),
+    pendingInvestmentCount: Number(investmentStats[0]?.pending ?? 0),
     openSessions: Number(sessionStats[0]?.total ?? 0),
     totalsByCurrency: totals,
   };

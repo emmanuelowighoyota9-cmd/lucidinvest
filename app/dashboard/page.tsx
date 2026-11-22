@@ -37,7 +37,12 @@ export default async function DashboardOverviewPage() {
         <div className={styles.stat}>
           <p className={styles.statLabel}>Portfolio principal</p>
           <p className={styles.statValue}>{portfolioLabel}</p>
-          <p className={styles.statHint}>{summary.investmentCount} open investment{summary.investmentCount === 1 ? "" : "s"}</p>
+          <p className={styles.statHint}>
+            {summary.investmentCount} active
+            {summary.pendingInvestmentCount > 0
+              ? ` · ${summary.pendingInvestmentCount} request${summary.pendingInvestmentCount === 1 ? "" : "s"} pending review`
+              : ""}
+          </p>
         </div>
         <div className={styles.stat}>
           <p className={styles.statLabel}>Account status</p>

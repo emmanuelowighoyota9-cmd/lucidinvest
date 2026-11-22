@@ -440,6 +440,29 @@
   overflow-wrap: anywhere;
 }
 
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: 14px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #6b7a6d;
+}
+
+.hint a {
+  color: #0b6b33;
+  font-weight: 650;
+}
+
 .field {
   display: grid;
   gap: 7px;

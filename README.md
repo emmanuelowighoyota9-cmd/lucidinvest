@@ -41,6 +41,16 @@ The server-side database integration uses Neon’s serverless PostgreSQL driver.
 - No deposits, withdrawals, trading, or real-money operations are enabled by these auth routes.
 - Do not commit credentials or seed fake customer balances.
 
+### Customer accounts, investments and transactions
+
+- `POST /api/account/accounts` opens an account for the signed-in customer from a type and currency, issues a random unique account number and stores it as `pending` for review.
+- `POST /api/account/investments` records an investment request against one of that customer's accounts, validated against the published catalogue in `investment_products` (active product, matching currency, product minimum, at most two decimal places).
+- `/dashboard/accounts`, `/dashboard/investments` and `/dashboard/transactions` are rendered from Neon: accounts, positions, submitted requests still in review, and posted ledger entries.
+- Both write routes reject requests whose `Origin`/`Referer` host does not match the deployment host (403), on top of the HttpOnly `SameSite=Lax` session cookie.
+- The overview's portfolio principal counts only `active` positions and its hint shows how many requests are still pending review.
+- These requests write `customer_accounts`, `investments` and `audit_events` rows only. They never post a ledger entry, set a balance or move money in either direction. One open account per type and currency is allowed (up to ten), and a customer can hold at most ten pending investment requests.
+- `migrations/0003_investment_catalogue.sql` publishes the starting product catalogue. It creates no customer records, balances or ledger entries; review the product names, currencies and minimums before applying it.
+
 ## Local development
 
 ```sh
