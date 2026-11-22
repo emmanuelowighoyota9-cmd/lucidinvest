@@ -6,7 +6,7 @@ import { FormEvent, useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./AuthForm.module.css";
 
-type Props = { mode: "login" | "register" };
+type Props = { mode: "login" | "register"; selectedAccount?: string };
 
 function CheckIcon() {
   return (
@@ -77,7 +77,7 @@ const PANEL_CONTENT = {
   },
 } as const;
 
-export default function AuthForm({ mode }: Props) {
+export default function AuthForm({ mode, selectedAccount }: Props) {
   const router = useRouter();
   const uid = useId();
   const registering = mode === "register";
@@ -189,6 +189,12 @@ export default function AuthForm({ mode }: Props) {
           <p className={styles.eyebrow}>{content.eyebrow}</p>
           <h1 className={styles.title}>{content.title}</h1>
           <p className={styles.lead}>{content.lead}</p>
+          {registering && selectedAccount ? (
+            <p className={styles.lead}>
+              You selected a {selectedAccount} account. Once your account is created you can open it from your
+              dashboard.
+            </p>
+          ) : null}
 
           <form className={styles.form} onSubmit={submit} noValidate={false}>
             {registering && (
@@ -267,6 +273,12 @@ export default function AuthForm({ mode }: Props) {
                 </p>
               )}
             </div>
+
+            {!registering && (
+              <p className={styles.switch} style={{ margin: 0 }}>
+                <Link href="/forgot-password">Forgot password?</Link>
+              </p>
+            )}
 
             {registering && (
               <div className={styles.field}>

@@ -22,6 +22,7 @@ export default function PageHeader({ eyebrow, title, lead, action }: Props) {
 
 const BADGE_TONES: Record<string, string> = {
   active: styles.badgeActive,
+  matured: styles.badgeActive,
   pending: styles.badgePending,
   reviewing: styles.badgePending,
   suspended: styles.badgeBad,

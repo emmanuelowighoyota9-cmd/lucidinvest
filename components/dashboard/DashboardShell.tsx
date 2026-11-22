@@ -119,6 +119,16 @@ const ADMIN_NAV: NavItem[] = [
     ),
   },
   {
+    href: "/admin/investments",
+    label: "Investments",
+    icon: (
+      <Icon>
+        <path d="M4 17.5 9 11l3.5 3.2L20 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15.5 6H20v4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      </Icon>
+    ),
+  },
+  {
     href: "/admin/enquiries",
     label: "Enquiries",
     icon: (

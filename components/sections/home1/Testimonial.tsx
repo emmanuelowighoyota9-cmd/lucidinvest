@@ -54,7 +54,7 @@ export default function Testimonial() {
                             </div>
                         </div>
                         <div className="text-box">
-                            <p>The platform's tools and resources significantly improved
+                            <p>The platform&apos;s tools and resources significantly improved
                                 my trading strategy. Lucid Global Invest has been instrumental in my
                                 trading success.</p>
                         </div>
@@ -255,7 +255,7 @@ export default function Testimonial() {
                             </div>
                         </div>
                         <div className="text-box">
-                            <p>The platform's tools and resources significantly improved
+                            <p>The platform&apos;s tools and resources significantly improved
                                 my trading strategy. Lucid Global Invest has been instrumental in my
                                 trading success.</p>
                         </div>

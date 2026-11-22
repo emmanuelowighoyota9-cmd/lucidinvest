@@ -52,13 +52,55 @@ const useCountdown = (targetDate: Date) => {
 
 export default function ComingSoon() {
   const countdown = useCountdown(new Date('2026-03-18T00:00:00'));
+  const [email, setEmail] = useState('');
+  const [notice, setNotice] = useState('');
+  const [busy, setBusy] = useState(false);
+
+  async function subscribe(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setBusy(true);
+    setNotice('');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Website visitor',
+          email,
+          subject: 'Coming Soon Notification',
+          message: 'Please notify me when the new site launches.',
+        }),
+      });
+      let result: unknown = null;
+      try {
+        result = await response.json();
+      } catch {
+        /* Fall back to the generic message below. */
+      }
+      const message =
+        result && typeof result === 'object' && 'message' in result && typeof result.message === 'string'
+          ? result.message
+          : '';
+
+      if (response.ok) {
+        setNotice('Thanks — we will email you when the site launches.');
+        setEmail('');
+      } else {
+        setNotice(message || 'We could not save your email. Please try again.');
+      }
+    } catch {
+      setNotice('Connection problem. Check your internet connection and try again.');
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <FullHeightWrapper className="coming-soon-page-style1 full-height">
         <div className="coming-soon-page-style1__bg" style={{ backgroundImage: 'url(/assets/images/backgrounds/coming-soon-page-style1-bg.jpg)', }} ></div>
         <div className="coming-soon-page-style1__content">
             <div className="inner">
-                <div className="big-title">We're Coming Soon...</div>
+                <div className="big-title">We&apos;re Coming Soon...</div>
 
                 <div className="timer-box clearfix">
                     <div className="countdown-timer">
@@ -97,21 +139,27 @@ export default function ComingSoon() {
 
                 <div className="text">
                     <p>
-                    Website is under construction. We'll be here soon with new
+                    Website is under construction. We&apos;ll be here soon with new
                     <br />
                     awesome site, Subscribe to be notified.
                     </p>
                 </div>
 
                 <div className="subscribe-box-style1">
-                    <form className="subscribe-form" onSubmit={(e) => e.preventDefault()}>
+                    <form className="subscribe-form" onSubmit={subscribe}>
                         <input
                             placeholder="Enter your email address"
                             type="email"
+                            name="email"
+                            autoComplete="email"
+                            maxLength={254}
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
                             required
                         />
-                        <button type="submit">Submit now</button>
+                        <button type="submit" disabled={busy}>{busy ? 'Sending…' : 'Submit now'}</button>
                     </form>
+                    {notice ? <p role="status" style={{ marginTop: 12 }}>{notice}</p> : null}
                 </div>
             </div>
         </div>

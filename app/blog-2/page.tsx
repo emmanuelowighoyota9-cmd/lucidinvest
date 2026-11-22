@@ -4,119 +4,21 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Layout from "@/components/layout/Layout";
+import { BLOG_POSTS } from "@/lib/blog";
 import Link from "next/link";
 import Image from "next/image";
 
-const blogPosts = [
-  {
-    slug: "1",
-    title: "How Global Events are Shaping Commodity ...",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    readTime: "4 Minutes read",
-    author: "Silver Scott",
-    image: "/assets/images/blog/blog-v3-1.jpg",
-  },
-  {
-    slug: "2",
-    title: "The Effect of Fiscal Policie on Stock Market ...",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "3 Minutes read",
-    author: "z.olivia",
-    image: "/assets/images/blog/blog-v3-2.jpg",
-  },
-  {
-    slug: "3",
-    title: "Understanding Leverage: The Pros and Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    readTime: "5 Minutes read",
-    author: "t.maverick",
-    image: "/assets/images/blog/blog-v3-3.jpg",
-  },
-  {
-    slug: "4",
-    title: "Overcoming Fear & Greed in Trading",
-    category: "Learning Center",
-    date: "23.08.2025",
-    readTime: "5 Minutes read",
-    author: "N.Isabella",
-    image: "/assets/images/blog/blog-v3-4.jpg",
-  },
-  {
-    slug: "5",
-    title: "Understanding Leverage: The Pros & Cons",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    readTime: "4 Minutes read",
-    author: "Silver Scott",
-    image: "/assets/images/blog/blog-v3-5.jpg",
-  },
-  {
-    slug: "6",
-    title: "Overcoming Fear & Greed in Trading",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "3 Minutes read",
-    author: "z.olivia",
-    image: "/assets/images/blog/blog-v3-6.jpg",
-  },
-  {
-    slug: "7",
-    title: "How Global Events are Shaping Commodity...",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "3 Minutes read",
-    author: "t.maverick",
-    image: "/assets/images/blog/blog-v3-7.jpg",
-  },
-  {
-    slug: "8",
-    title: "Effect of Fiscal Policie on Stock Market...",
-    category: "Learning Center",
-    date: "23.08.2025",
-    readTime: "5 Minutes read",
-    author: "N.Isabella",
-    image: "/assets/images/blog/blog-v3-8.jpg",
-  },
-  {
-    slug: "9",
-    title: "How Global Events are Shaping Commodity...",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    readTime: "4 Minutes read",
-    author: "Silver Scott",
-    image: "/assets/images/blog/blog-v3-9.jpg",
-  },
-  {
-    slug: "10",
-    title: "Effect of Fiscal Policies on Stock Market...",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "4 Minutes read",
-    author: "z.olivia",
-    image: "/assets/images/blog/blog-v3-10.jpg",
-  },
-  {
-    slug: "11",
-    title: "Understanding Leverage: The Pros & Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    readTime: "4 Minutes read",
-    author: "t.maverick",
-    image: "/assets/images/blog/blog-v3-11.jpg",
-  },
-  {
-    slug: "12",
-    title: "Overcoming Fear & Greed in Trading",
-    category: "Market Analysis",
-    date: "10.08.2025",
-    readTime: "4 Minutes read",
-    author: "N.Isabella",
-    image: "/assets/images/blog/blog-v3-12.jpg",
-  },
-];
+const blogPosts = BLOG_POSTS.map((post) => ({
+  slug: post.slug,
+  title: post.title,
+  category: post.category,
+  date: post.date,
+  readTime: post.readTime,
+  author: post.author,
+  comment: `${post.comments} Cmts`,
+  image: post.image,
+  excerpt: post.excerpt,
+}));
 
 export default function Blog_Page_Two() {
   const [open, setOpen] = useState(false);
@@ -150,7 +52,7 @@ export default function Blog_Page_Two() {
                         priority
                       />
                       <div className="overlay-icon">
-                        <Link href="#"
+                        <button type="button"
                           className="lightbox-image"
                           onClick={() => {
                             setIndex(i);
@@ -158,7 +60,7 @@ export default function Blog_Page_Two() {
                           }}
                         >
                           <i className="icon-maximize"></i>
-                        </Link>
+                        </button>
                       </div>
                     </div>
 

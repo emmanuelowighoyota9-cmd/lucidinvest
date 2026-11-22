@@ -3,12 +3,23 @@ import OpenAccountForm from "@/components/dashboard/OpenAccountForm";
 import styles from "@/components/dashboard/dashboard.module.css";
 import { requireUser } from "@/lib/auth";
 import { formatDate, getAccounts } from "@/lib/dashboard";
+import { ACCOUNT_TYPES } from "@/lib/requests";
 
 export const dynamic = "force-dynamic";
 
-export default async function DashboardAccountsPage() {
+export default async function DashboardAccountsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ type?: string | string[] }>;
+}) {
   const user = await requireUser();
   const accounts = await getAccounts(user.id);
+
+  // Marketing pages link here (or to /register) with ?type=…, so preselect the
+  // requested account type when it is one we actually offer.
+  const params = await searchParams;
+  const requested = Array.isArray(params.type) ? params.type[0] : params.type;
+  const initialType = ACCOUNT_TYPES.find((entry) => entry.value === requested)?.value;
 
   return (
     <>
@@ -25,7 +36,7 @@ export default async function DashboardAccountsPage() {
           </h2>
           <span className={styles.muted}>No initial deposit required</span>
         </div>
-        <OpenAccountForm />
+        <OpenAccountForm initialType={initialType} />
       </section>
 
       <section className={styles.panel} aria-labelledby="accounts-list">

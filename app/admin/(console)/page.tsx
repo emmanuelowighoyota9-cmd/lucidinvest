@@ -21,7 +21,7 @@ export default async function AdminOverviewPage() {
       <PageHeader
         eyebrow="Operations"
         title="Admin overview"
-        lead="A read-only view of customer records, accounts and enquiries. Nothing on this console moves money."
+        lead="Customer records, account approvals, investment requests and enquiries in one audited console. Every change you make is recorded with your account as its actor."
       />
 
       <section className={styles.stats} aria-label="Platform summary">
@@ -122,8 +122,8 @@ export default async function AdminOverviewPage() {
       </div>
 
       <p className={styles.notice}>
-        This console is read-only. Deposits, withdrawals, trading and balance edits are intentionally unavailable, and
-        staff actions here are limited to viewing records.
+        Staff actions here are limited to review statuses and approving a pending investment, which books its
+        subscription entry. Deposits, withdrawals, trading, balance edits and reversals remain unavailable.
       </p>
     </>
   );

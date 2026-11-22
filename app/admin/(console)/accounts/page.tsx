@@ -1,4 +1,5 @@
 import PageHeader, { EmptyState, StatusBadge } from "@/components/dashboard/PageHeader";
+import StatusActions from "@/components/admin/StatusActions";
 import styles from "@/components/dashboard/dashboard.module.css";
 import { requireAdmin } from "@/lib/auth";
 import { formatDate } from "@/lib/dashboard";
@@ -41,6 +42,7 @@ export default async function AdminAccountsPage() {
                   <th scope="col">Currency</th>
                   <th scope="col">Status</th>
                   <th scope="col">Opened</th>
+                  <th scope="col">Review</th>
                 </tr>
               </thead>
               <tbody>
@@ -55,6 +57,20 @@ export default async function AdminAccountsPage() {
                     <td data-label="Currency">{account.currency}</td>
                     <td data-label="Status"><StatusBadge status={account.status} /></td>
                     <td data-label="Opened">{formatDate(account.created_at)}</td>
+                    <td data-label="Review">
+                      {account.status === "pending" ? (
+                        <StatusActions
+                          endpoint={`/api/admin/accounts/${account.id}`}
+                          record={`${account.account_number ?? "pending account"} (${account.email})`}
+                          options={[
+                            { value: "active", label: "Approve" },
+                            { value: "closed", label: "Reject" },
+                          ]}
+                        />
+                      ) : (
+                        <span className={styles.muted}>Reviewed</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -64,8 +80,8 @@ export default async function AdminAccountsPage() {
       </section>
 
       <p className={styles.notice}>
-        Account records are shown for support and review only. This console cannot post entries, change balances or
-        freeze accounts.
+        Approving or rejecting an account only changes its review status and records an audit event. This console cannot
+        post entries, change balances or move money.
       </p>
     </>
   );

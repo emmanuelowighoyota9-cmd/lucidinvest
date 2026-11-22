@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageHeader, { EmptyState, StatusBadge } from "@/components/dashboard/PageHeader";
 import InvestmentRequestForm from "@/components/dashboard/InvestmentRequestForm";
+import CancelInvestmentButton from "@/components/dashboard/CancelInvestmentButton";
 import styles from "@/components/dashboard/dashboard.module.css";
 import { requireUser } from "@/lib/auth";
 import { formatDate, formatMoney, getAccounts, getInvestments, getProducts } from "@/lib/dashboard";
@@ -79,6 +80,7 @@ export default async function DashboardInvestmentsPage() {
                   <th scope="col" className={styles.num}>Principal</th>
                   <th scope="col">Status</th>
                   <th scope="col">Opened</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -94,6 +96,13 @@ export default async function DashboardInvestmentsPage() {
                     <td className={styles.num}>{formatMoney(investment.principal, investment.currency)}</td>
                     <td><StatusBadge status={investment.status} /></td>
                     <td>{formatDate(investment.created_at)}</td>
+                    <td>
+                      {investment.status === "pending" ? (
+                        <CancelInvestmentButton id={investment.id} product={investment.product_name} />
+                      ) : (
+                        <span className={styles.muted}>—</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -141,7 +150,8 @@ export default async function DashboardInvestmentsPage() {
 
       <p className={styles.notice}>
         Submitting a request records your instruction for review. It does not place an order, take a payment or move
-        money, and the request only becomes a position once our team confirms funding through the agreed channel.
+        money, and the request only becomes a position once our team confirms funding through the agreed channel. You
+        can withdraw a request yourself while it is still pending.
       </p>
     </>
   );

@@ -71,6 +71,10 @@ export default function AccountDetail({
   technology,
   specs,
 }: AccountDetailProps) {
+  // The dashboard only offers three account types; demo pages keep their own
+  // type, everything else opens as an investment account.
+  const accountType = slug.includes("demo") ? "demo" : "investment";
+
   return (
     <div className="body-bg-1">
       <Layout headerStyle={1} footerStyle={1} breadcrumbTitle={breadcrumb} breadcrumbTitleTwo="Trading">
@@ -207,6 +211,16 @@ export default function AccountDetail({
                   <div className="intro-box">
                     <h2>{title}</h2>
                     <p>{intro}</p>
+                    <div className="btn-box" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
+                      <Link className="btn-one" href={`/register?type=${accountType}`}>
+                        <span className="txt">Open Account</span>
+                        <i className="icon-right-arrow"></i>
+                      </Link>
+                      <Link className="btn-one" href={`/dashboard/accounts?type=${accountType}`}>
+                        <span className="txt">Go to dashboard</span>
+                        <i className="icon-right-arrow"></i>
+                      </Link>
+                    </div>
                   </div>
 
                   <div className="offers-box">

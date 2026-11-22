@@ -1,10 +1,25 @@
 import PageHeader, { EmptyState, StatusBadge } from "@/components/dashboard/PageHeader";
+import StatusActions, { type StatusOption } from "@/components/admin/StatusActions";
 import styles from "@/components/dashboard/dashboard.module.css";
 import { requireAdmin } from "@/lib/auth";
 import { formatDateTime } from "@/lib/dashboard";
 import { getAdminEnquiries } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
+
+/** Only the next steps in the review workflow are offered. */
+const NEXT_STATUS: Record<string, StatusOption[]> = {
+  new: [
+    { value: "reviewing", label: "Start review" },
+    { value: "spam", label: "Mark spam" },
+  ],
+  reviewing: [
+    { value: "resolved", label: "Resolve" },
+    { value: "spam", label: "Mark spam" },
+  ],
+  spam: [{ value: "reviewing", label: "Reopen" }],
+  resolved: [],
+};
 
 export default async function AdminEnquiriesPage() {
   await requireAdmin();
@@ -39,6 +54,7 @@ export default async function AdminEnquiriesPage() {
                   <th scope="col">From</th>
                   <th scope="col">Message</th>
                   <th scope="col">Status</th>
+                  <th scope="col">Review</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,6 +70,17 @@ export default async function AdminEnquiriesPage() {
                       <div className={styles.muted} style={{ whiteSpace: "pre-wrap" }}>{enquiry.message}</div>
                     </td>
                     <td data-label="Status"><StatusBadge status={enquiry.status} /></td>
+                    <td data-label="Review">
+                      {(NEXT_STATUS[enquiry.status] ?? []).length > 0 ? (
+                        <StatusActions
+                          endpoint={`/api/admin/enquiries/${enquiry.id}`}
+                          record={`the enquiry from ${enquiry.email}`}
+                          options={NEXT_STATUS[enquiry.status] ?? []}
+                        />
+                      ) : (
+                        <span className={styles.muted}>Closed</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -63,8 +90,8 @@ export default async function AdminEnquiriesPage() {
       </section>
 
       <p className={styles.notice}>
-        Enquiries are read-only here. Replies are sent from the support mailbox so that customer conversations stay in
-        one auditable place.
+        Moving an enquiry through review records an audit event. Replies are still sent from the support mailbox so that
+        customer conversations stay in one auditable place.
       </p>
     </>
   );

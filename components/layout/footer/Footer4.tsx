@@ -29,7 +29,7 @@ export default function Footer4() {
                     <div className="footer-main-style4__top">
                         <div className="footer-main-style4__top-left">
                             <div className="title">
-                                <h4>Need Help? We're Here for Every Trade!</h4>
+                                <h4>Need Help? We&apos;re Here for Every Trade!</h4>
                             </div>
                             <div className="btn-box">
                                 <Link href="/contact">

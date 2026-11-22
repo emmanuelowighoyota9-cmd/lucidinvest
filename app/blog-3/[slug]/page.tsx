@@ -2,71 +2,55 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Layout from "@/components/layout/Layout";
+import { BLOG_POSTS, getBlogPost } from "@/lib/blog";
 
-const blogPosts = [
-  {
-    slug: "1",
-    title: "How Global Events are Shaping Commodity Prices",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    author: "N.Isabella",
-    comment: "45 Cmts",
-    readTime: "4 Minutes read",
-    image: "/assets/images/blog/blog-v5-1.jpg",
-  },
-  {
-    slug: "2",
-    title: "Effect of Fiscal Policies on Stock Market Performance",
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "t.maverick",
-    comment: "10 Cmts",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v5-2.jpg",
-  },
-  {
-    slug: "3",
-    title: "Understanding Leverage: The Pros and Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    author: "z.olivia",
-    comment: "24 Cmts",
-    readTime: "5 Minutes read",
-    image: "/assets/images/blog/blog-v5-3.jpg",
-  },
-  {
-    slug: "4",
-    title: "How Global Events are Shaping Commodity Prices",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    author: "N.Isabella",
-    comment: "45 Cmts",
-    readTime: "4 Minutes read",
-    image: "/assets/images/blog/blog-v5-4.jpg",
-  },
-  {
-    slug: "5",
-    title: "How Global Events are Shaping Commodity ...",
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "t.maverick",
-    comment: "31 Cmts",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v5-5.jpg",
-  },
-];
+const blogPosts = BLOG_POSTS.map((post) => ({
+  slug: post.slug,
+  title: post.title,
+  category: post.category,
+  date: post.date,
+  author: post.author,
+  comment: `${post.comments} Cmts`,
+  image: post.image,
+}));
+
+// Only the slugs in lib/blog.ts exist; anything else is a real 404.
+export const dynamicParams = false;
 
 // Generate static paths
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
+  if (!post) return { title: "Article not found | Lucid Global Invest" };
+  return {
+    title: `${post.title} | Lucid Global Invest`,
+    description: post.excerpt,
+    alternates: { canonical: `/blog-3/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.published,
+      images: [{ url: post.image }],
+    },
+  };
+}
+
 export async function generateStaticParams() {
-  return blogPosts.map(post => ({ slug: post.slug }));
+  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
 }
 
 // ✅ Server component
 export default async function BlogSinglePage_Three({ params }: { params: Promise<{ slug: string }> }) {
   // params is a Promise now
   const { slug } = await params;
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = getBlogPost(slug);
 
   if (!post) return notFound();
 
@@ -96,7 +80,7 @@ export default async function BlogSinglePage_Three({ params }: { params: Promise
                           </li>
                           <li>
                             <div className="icon"><i className="icon-comment"></i></div>
-                            <h6>{post.comment}</h6>
+                            <h6>{post.comments} Cmts</h6>
                           </li>
                         </ul>
                       </div>

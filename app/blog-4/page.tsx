@@ -4,83 +4,21 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Layout from "@/components/layout/Layout";
+import { BLOG_POSTS } from "@/lib/blog";
 import Link from "next/link";
 import Image from "next/image";
 
-const blogPosts = [
-  {
-    slug: "1",
-    title: "How global events are shaping commodity prices",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    readTime: "4 Minutes read",
-    image: "/assets/images/blog/blog-v2-1.jpg",
-    excerpt: "Desire that they cannot foresee all the pain...",
-  },
-  {
-    slug: "2",
-    title: "The Effect of Fiscal Policies on Stock Market Performance",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v2-2.jpg",
-    excerpt: "Cases are perfectly simple to all distinguish...",
-  },
-  {
-    slug: "3",
-    title: "Understanding Leverage: The Pros and Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    readTime: "5 Minutes read",
-    image: "/assets/images/blog/blog-v2-3.jpg",
-    excerpt: "Foresee the pain trouble that are in bound...",
-  },
-  {
-    slug: "4",
-    title: "Mastering Risk Management in Trading",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v2-4.jpg",
-    excerpt: "Simple to all distinguish desire buisness...",
-  },
-  {
-    slug: "5",
-    title: "The Effect of Fiscal Policies on Stock Market Performance",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v2-5.jpg",
-    excerpt: "Cases are perfectly simple to all distinguish...",
-  },
-  {
-    slug: "6",
-    title: "How global events are shaping commodity prices",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    readTime: "4 Minutes read",
-    image: "/assets/images/blog/blog-v2-6.jpg",
-    excerpt: "Desire that they cannot foresee all the pain...",
-  },
-  {
-    slug: "7",
-    title: "Mastering Risk Management in Trading",
-    category: "Economic News",
-    date: "31.08.2025",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v2-7.jpg",
-    excerpt: "Simple to all distinguish desire buisness...",
-  },
-  {
-    slug: "8",
-    title: "Understanding Leverage: The Pros and Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    readTime: "5 Minutes read",
-    image: "/assets/images/blog/blog-v2-8.jpg",
-    excerpt: "Foresee the pain trouble that are in bound...",
-  },
-];
+const blogPosts = BLOG_POSTS.map((post) => ({
+  slug: post.slug,
+  title: post.title,
+  category: post.category,
+  date: post.date,
+  readTime: post.readTime,
+  author: post.author,
+  comment: `${post.comments} Cmts`,
+  image: post.image,
+  excerpt: post.excerpt,
+}));
 
 export default function Blog_Page_Four() {
   const [open, setOpen] = useState(false);
@@ -107,7 +45,7 @@ export default function Blog_Page_Four() {
                                 priority
                             />
                             <div className="overlay-icon">
-                                <Link href="#"
+                                <button type="button"
                                 className="lightbox-image"
                                 onClick={() => {
                                     setIndex(i);
@@ -115,7 +53,7 @@ export default function Blog_Page_Four() {
                                 }}
                                 >
                                 <i className="icon-maximize"></i>
-                                </Link>
+                                </button>
                             </div>
                         </div>
                         <div className="content-box">

@@ -13,9 +13,11 @@ const ACCOUNT_TYPES = [
 
 const CURRENCIES = ["USD", "EUR", "GBP"];
 
-export default function OpenAccountForm() {
+export default function OpenAccountForm({ initialType }: { initialType?: string }) {
   const router = useRouter();
-  const [accountType, setAccountType] = useState("investment");
+  const [accountType, setAccountType] = useState(
+    ACCOUNT_TYPES.some((entry) => entry.value === initialType) ? (initialType as string) : "investment",
+  );
   const [currency, setCurrency] = useState("USD");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<{ tone: "ok" | "error"; text: string } | null>(null);

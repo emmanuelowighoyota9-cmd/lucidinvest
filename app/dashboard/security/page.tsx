@@ -1,5 +1,6 @@
 import PageHeader from "@/components/dashboard/PageHeader";
 import RevokeSessions from "@/components/dashboard/RevokeSessions";
+import ChangePasswordForm from "@/components/dashboard/ChangePasswordForm";
 import styles from "@/components/dashboard/dashboard.module.css";
 import { requireUser } from "@/lib/auth";
 import { formatDateTime, getSessions } from "@/lib/dashboard";
@@ -15,8 +16,16 @@ export default async function DashboardSecurityPage() {
       <PageHeader
         eyebrow="Security"
         title="Sign-in sessions"
-        lead="Each device that signs in creates a session. Ending a session signs that device out immediately."
+        lead="Change your password and review the devices signed in to your account. Changing your password signs out every other device."
       />
+
+      <section className={styles.panel} aria-labelledby="change-password">
+        <div className={styles.panelHead}>
+          <h2 id="change-password" className={styles.panelTitle}>Change password</h2>
+          <span className={styles.muted}>At least 12 characters</span>
+        </div>
+        <ChangePasswordForm />
+      </section>
 
       <section className={styles.panel} aria-labelledby="sessions">
         <div className={styles.panelHead}>
@@ -67,7 +76,8 @@ export default async function DashboardSecurityPage() {
       </section>
 
       <p className={styles.notice}>
-        If you see a session you do not recognise, sign out the other devices and change your password with support.
+        If you see a session you do not recognise, change your password here and sign out the other devices. If you
+        cannot sign in at all, use the &quot;Forgot password?&quot; link on the sign-in page.
       </p>
     </>
   );

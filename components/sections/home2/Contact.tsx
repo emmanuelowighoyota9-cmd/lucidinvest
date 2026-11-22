@@ -28,7 +28,7 @@ export default function Contact() {
                                 <div className="sub-title">
                                     <h4>Newsletter</h4>
                                 </div>
-                                <h2>Don't Miss Out, Subscribe</h2>
+                                <h2>Don&apos;t Miss Out, Subscribe</h2>
                                 <div className="text">
                                     <p>Get Market Updates Straight to Your Inbox.</p>
                                 </div>

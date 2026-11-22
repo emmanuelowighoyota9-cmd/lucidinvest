@@ -4,67 +4,21 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Layout from "@/components/layout/Layout";
+import { BLOG_POSTS } from "@/lib/blog";
 import Link from "next/link";
 import Image from "next/image";
 
-const blogPosts = [
-  {
-    slug: "1",
-    title: "Global Shocks, Global Prices—Commodities in Motion",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    author: "N.Isabella",
-    comment: "45 Cmts",
-    readTime: "4 Minutes read",
-    image: "/assets/images/blog/blog-v5-1.jpg",
-    excerpt: "Desire that they cannot foresee all the pain business it will frequently occur business it will frequently occur that pleasures have to be repudiated...",
-  },
-  {
-    slug: "2",
-    title: "Fiscal Fixes, Stock Prices—Performance in Focus",
-
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "t.maverick",
-    comment: "10 Cmts",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v5-2.jpg",
-    excerpt: "Cases are perfectly simple to all distinguishdesire that they cannot foresee beguiled and demoralized by the charms of pleasure of the moment so blinded ...",
-  },
-  {
-    slug: "3",
-    title: "Understanding Leverage: The Pros and Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    author: "z.olivia",
-    comment: "24 Cmts",
-    readTime: "5 Minutes read",
-    image: "/assets/images/blog/blog-v5-3.jpg",
-    excerpt: "Foresee the pain trouble that are in bound trouble that are bound to ensue loves or pursues or desires to obtain pain of itself because it is pain...",
-  },
-  {
-    slug: "4",
-    title: "How Global Events are Shaping Commodity Prices",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    author: "N.Isabella",
-    comment: "45 Cmts",
-    readTime: "4 Minutes read",
-    image: "/assets/images/blog/blog-v5-4.jpg",
-    excerpt: "Desire that they cannot foresee all the pain business it will frequently occur business it will frequently occur that pleasures have to be repudiated...",
-  },
-  {
-    slug: "5",
-    title: "How Global Events are Shaping Commodity ...",
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "t.maverick",
-    comment: "31 Cmts",
-    readTime: "3 Minutes read",
-    image: "/assets/images/blog/blog-v5-5.jpg",
-    excerpt: "Cases are perfectly simple to all distinguishdesire that they cannot foresee beguiled and demoralized by the charms of pleasure of the moment so blinded ...",
-  },
-];
+const blogPosts = BLOG_POSTS.map((post) => ({
+  slug: post.slug,
+  title: post.title,
+  category: post.category,
+  date: post.date,
+  readTime: post.readTime,
+  author: post.author,
+  comment: `${post.comments} Cmts`,
+  image: post.image,
+  excerpt: post.excerpt,
+}));
 
 export default function Blog_Page_Three() {
   const [open, setOpen] = useState(false);
@@ -92,7 +46,7 @@ export default function Blog_Page_Three() {
                                     priority
                                 />
                                 <div className="overlay-icon">
-                                    <Link href="#"
+                                    <button type="button"
                                     className="lightbox-image"
                                     onClick={() => {
                                         setIndex(i);
@@ -100,7 +54,7 @@ export default function Blog_Page_Three() {
                                     }}
                                     >
                                     <i className="icon-maximize"></i>
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                             <div className="content-box">

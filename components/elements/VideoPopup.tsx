@@ -7,9 +7,11 @@ export default function VideoModal(): React.JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
 
-  // Wait until the component is mounted to use portal
+  // Wait until the component is mounted to use the portal. Deferring the state
+  // change to the next frame keeps it out of the effect's synchronous phase.
   useEffect(() => {
-    setMounted(true);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   // Disable background scroll

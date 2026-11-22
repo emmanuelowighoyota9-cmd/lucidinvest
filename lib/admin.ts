@@ -125,6 +125,36 @@ export async function getAdminEnquiries() {
   `);
 }
 
+type AdminInvestmentRow = {
+  id: string;
+  principal: string | number;
+  currency: string;
+  status: string;
+  created_at: string | Date;
+  product_name: string;
+  terms_version: string | null;
+  account_number: string | null;
+  full_name: string;
+  email: string;
+};
+
+export type AdminInvestment = AdminInvestmentRow;
+
+export async function getAdminInvestments() {
+  const sql = getSql();
+  return rows<AdminInvestmentRow>(await sql`
+    SELECT i.id, i.principal, i.currency, i.status, i.created_at,
+           p.name AS product_name, p.terms_version,
+           a.account_number, u.full_name, u.email
+    FROM investments i
+    JOIN investment_products p ON p.id = i.product_id
+    JOIN customer_accounts a ON a.id = i.account_id
+    JOIN app_users u ON u.id = i.user_id
+    ORDER BY CASE WHEN i.status = 'pending' THEN 0 ELSE 1 END, i.created_at DESC
+    LIMIT ${LIMIT}
+  `);
+}
+
 /** Number of accounts that can use the admin console. */
 export async function getAdminCount() {
   const sql = getSql();

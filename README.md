@@ -51,6 +51,36 @@ The server-side database integration uses Neon’s serverless PostgreSQL driver.
 - These requests write `customer_accounts`, `investments` and `audit_events` rows only. They never post a ledger entry, set a balance or move money in either direction. One open account per type and currency is allowed (up to ten), and a customer can hold at most ten pending investment requests.
 - `migrations/0003_investment_catalogue.sql` publishes the starting product catalogue. It creates no customer records, balances or ledger entries; review the product names, currencies and minimums before applying it.
 
+### Password recovery and security
+
+- `POST /api/auth/forgot-password` issues a single-use token when the address belongs to an active account and always answers with the same message. Only the SHA-256 digest of the token is stored (`password_reset_tokens`), it expires after one hour and earlier unused links are closed out.
+- `POST /api/auth/reset-password` consumes the token once, stores a new scrypt hash and revokes every existing session for the account in one statement.
+- `/forgot-password` and `/reset-password?token=…` are the customer-facing pages; the sign-in form links to them.
+- `POST /api/auth/change-password` verifies the current password, stores the new one and signs out every other session. `/dashboard/security` hosts the form.
+- No mail provider is configured in this repository. Without one, the reset link has to be delivered by your support process: set `RESET_LINK_LOG=1` on a controlled environment to print the link to the server log, and never enable it in a shared production log.
+
+### Customer cancellations
+
+`POST /api/account/investments/:id/cancel` withdraws the signed-in customer's own `pending` request (ownership and the pending status are part of the update). The request moves to `cancelled` and an audit row is written; a request that has already been reviewed cannot be cancelled.
+
+## Admin operations
+
+The console at `/admin` is gated by `requireAdmin()` in the layout and again in every route handler, and all writes require a same-origin request and write an `audit_events` row:
+
+- `PATCH /api/admin/customers/:id` sets `active`, `suspended` or `closed` on a customer record (never on staff accounts or your own account).
+- `PATCH /api/admin/accounts/:id` approves a `pending` account (`active`) or rejects it (`closed`).
+- `PATCH /api/admin/investments/:id` approves (`active`) or rejects (`rejected`) a pending request. Approval flips the status, posts one `ledger_transactions` row and its `ledger_entries` entry, and writes the audit event in a single SQL statement, so a double approval cannot post twice.
+- `PATCH /api/admin/enquiries/:id` moves an enquiry through `new → reviewing → resolved` (or `spam`).
+
+There are still no deposits, withdrawals, trades, balance edits or reversals anywhere in the application.
+
+## Content pages and articles
+
+- `/index-3` renders the `home3` section suite and `/index-4` the `home4` suite, each with its own header and footer style; `/` remains the default landing page.
+- Every article lives in `lib/blog.ts`. The four listing pages and the `/blog-N/[slug]` detail routes read from it, detail routes emit their own metadata and unknown slugs are a real 404 (`dynamicParams = false`). `/blog-single` is a 307 redirect to `/blog-1`.
+- `components/elements/ContactForm.tsx` sends name, email, phone, subject and message to `POST /api/contact`, which validates all five and stores them in `contact_enquiries` (`phone` added by `migrations/0005_contact_phone.sql`).
+- The newsletter form on `/coming-soon` stores enquiries with `subject: 'Coming Soon Notification'`.
+
 ## Local development
 
 ```sh

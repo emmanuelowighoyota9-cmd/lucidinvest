@@ -2,118 +2,55 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Layout from "@/components/layout/Layout";
+import { BLOG_POSTS, getBlogPost } from "@/lib/blog";
 
-const blogPosts = [
-  {
-    slug: "1",
-    title: "How Global Events are Shaping Commodity Prices",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    author: "Silver Scott",
-    image: "/assets/images/blog/blog-v3-1.jpg",
-  },
-  {
-    slug: "2",
-    title: "The Effect of Fiscal Policies on Stock Market Performance",
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "z.olivia",
-    image: "/assets/images/blog/blog-v3-2.jpg",
-  },
-  {
-    slug: "3",
-    title: "Understanding Leverage: The Pros and Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    author: "t.maverick",
-    image: "/assets/images/blog/blog-v3-3.jpg",
-  },
-  {
-    slug: "4",
-    title: "Overcoming Fear & Greed in Trading",
-    category: "Learning Center",
-    date: "23.08.2025",
-    author: "N.Isabella",
-    image: "/assets/images/blog/blog-v3-4.jpg",
-  },
-  {
-    slug: "5",
-    title: "Understanding Leverage: The Pros & Cons",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    author: "Silver Scott",
-    image: "/assets/images/blog/blog-v3-5.jpg",
-  },
-  {
-    slug: "6",
-    title: "Overcoming Fear & Greed in Trading",
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "z.olivia",
-    image: "/assets/images/blog/blog-v3-6.jpg",
-  },
-  {
-    slug: "7",
-    title: "How Global Events are Shaping Commodity Prices",
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "t.maverick",
-    image: "/assets/images/blog/blog-v3-7.jpg",
-  },
-  {
-    slug: "8",
-    title: "Effect of Fiscal Policies on Stock Market Performance",
-    category: "Learning Center",
-    date: "23.08.2025",
-    author: "N.Isabella",
-    image: "/assets/images/blog/blog-v3-8.jpg",
-  },
-  {
-    slug: "9",
-    title: "How Global Events are Shaping Commodity Prices",
-    category: "Market Analysis",
-    date: "15.09.2025",
-    author: "Silver Scott",
-    image: "/assets/images/blog/blog-v3-9.jpg",
-  },
-  {
-    slug: "10",
-    title: "Effect of Fiscal Policies on Stock Market Performance",
-    category: "Economic News",
-    date: "31.08.2025",
-    author: "z.olivia",
-    image: "/assets/images/blog/blog-v3-10.jpg",
-  },
-  {
-    slug: "11",
-    title: "Understanding Leverage: The Pros & Cons",
-    category: "Learning Center",
-    date: "23.08.2025",
-    author: "t.maverick",
-    image: "/assets/images/blog/blog-v3-11.jpg",
-  },
-  {
-    slug: "12",
-    title: "Overcoming Fear & Greed in Trading",
-    category: "Market Analysis",
-    date: "10.08.2025",
-    author: "N.Isabella",
-    image: "/assets/images/blog/blog-v3-12.jpg",
-  },
-  // ... other posts
-];
+const blogPosts = BLOG_POSTS.map((post) => ({
+  slug: post.slug,
+  title: post.title,
+  category: post.category,
+  date: post.date,
+  author: post.author,
+  comment: `${post.comments} Cmts`,
+  image: post.image,
+}));
+
+// Only the slugs in lib/blog.ts exist; anything else is a real 404.
+export const dynamicParams = false;
 
 // Generate static paths
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
+  if (!post) return { title: "Article not found | Lucid Global Invest" };
+  return {
+    title: `${post.title} | Lucid Global Invest`,
+    description: post.excerpt,
+    alternates: { canonical: `/blog-2/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.published,
+      images: [{ url: post.image }],
+    },
+  };
+}
+
 export async function generateStaticParams() {
-  return blogPosts.map(post => ({ slug: post.slug }));
+  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
 }
 
 // ✅ Server component
 export default async function BlogSinglePage_Two({ params }: { params: Promise<{ slug: string }> }) {
   // params is a Promise now
   const { slug } = await params;
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = getBlogPost(slug);
 
   if (!post) return notFound();
 

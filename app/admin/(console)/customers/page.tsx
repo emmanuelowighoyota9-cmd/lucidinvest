@@ -1,4 +1,5 @@
 import PageHeader, { EmptyState, StatusBadge } from "@/components/dashboard/PageHeader";
+import StatusActions from "@/components/admin/StatusActions";
 import styles from "@/components/dashboard/dashboard.module.css";
 import { requireAdmin } from "@/lib/auth";
 import { formatDate, formatDateTime } from "@/lib/dashboard";
@@ -38,6 +39,7 @@ export default async function AdminCustomersPage() {
                   <th scope="col" className={styles.num}>Accounts</th>
                   <th scope="col">Last seen</th>
                   <th scope="col">Joined</th>
+                  <th scope="col">Review</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,6 +54,21 @@ export default async function AdminCustomersPage() {
                     <td data-label="Accounts" className={styles.num}>{customer.account_count}</td>
                     <td data-label="Last seen">{customer.last_seen_at ? formatDateTime(customer.last_seen_at) : "—"}</td>
                     <td data-label="Joined">{formatDate(customer.created_at)}</td>
+                    <td data-label="Review">
+                      {customer.role === "customer" ? (
+                        <StatusActions
+                          endpoint={`/api/admin/customers/${customer.id}`}
+                          record={customer.email}
+                          options={[
+                            { value: "active", label: "Activate" },
+                            { value: "suspended", label: "Suspend" },
+                            { value: "closed", label: "Close" },
+                          ]}
+                        />
+                      ) : (
+                        <span className={styles.muted}>Staff account</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -61,8 +78,8 @@ export default async function AdminCustomersPage() {
       </section>
 
       <p className={styles.notice}>
-        Roles and statuses are shown as stored. Account status changes are handled outside this console so that every
-        change is recorded through the reviewed database process.
+        Status changes are applied immediately and recorded in the audit log with your account as the actor. Staff
+        accounts cannot be changed here, and roles are never edited from the console.
       </p>
     </>
   );

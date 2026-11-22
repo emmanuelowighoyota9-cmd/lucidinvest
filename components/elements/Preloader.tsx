@@ -5,15 +5,15 @@ export default function Preloader() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handleLoad = () => setLoading(false);
-    
-    // Hide preloader when window is fully loaded
+    // Hide the preloader once the page has loaded. The state change is deferred
+    // to the next frame so it never runs synchronously inside the effect.
     if (document.readyState === "complete") {
-      setLoading(false);
-    } else {
-      window.addEventListener("load", handleLoad);
-      return () => window.removeEventListener("load", handleLoad);
+      const frame = requestAnimationFrame(() => setLoading(false));
+      return () => cancelAnimationFrame(frame);
     }
+    const handleLoad = () => setLoading(false);
+    window.addEventListener("load", handleLoad);
+    return () => window.removeEventListener("load", handleLoad);
   }, []);
 
   if (!loading) return null;
