@@ -525,7 +525,7 @@ export default function WalletConsole({
             <div className={styles.walletMeta}>
               <span className={styles.walletId}>{wallet.walletNumber}</span>
               <span className={styles.currencyChip}>{wallet.currency}</span>
-              <StatusBadge status={wallet.status} />
+              <span className={styles.walletStatus}>{wallet.status}</span>
               {heldMinor > 0 && <span>{formatMinor(heldMinor, wallet.currency)} reserved for withdrawals</span>}
             </div>
           </div>
@@ -583,7 +583,7 @@ export default function WalletConsole({
         </div>
 
         <div className={styles.summaryFoot}>
-          <span className={styles.summaryLink}>Balances update when a ledger entry is posted.</span>
+          <span className={styles.summaryNote}>Balances update when a ledger entry is posted.</span>
           <button type="button" className={styles.summaryLink} style={{ background: "none", border: 0, cursor: "pointer" }} onClick={() => setDialog({ type: "create" })}>
             Create account →
           </button>

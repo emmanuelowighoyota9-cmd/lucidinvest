@@ -75,7 +75,7 @@ export default async function WalletPage() {
       <section className={styles.panel} aria-labelledby="wallet-activity">
         <div className={styles.panelHead}>
           <h2 id="wallet-activity" className={styles.panelTitle}>
-            Recent wallet activity
+            Recent activity
           </h2>
           <Link href="/dashboard/wallet/history" className={styles.panelLink}>
             View full history
