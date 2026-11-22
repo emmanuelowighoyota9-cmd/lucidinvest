@@ -31,7 +31,7 @@ export default async function AdminAccountsPage() {
             text="Accounts opened during onboarding will be listed here with their owner and status."
           />
         ) : (
-          <div className={styles.tableWrap}>
+          <div className={`${styles.tableWrap} ${styles.tableStacked}`}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -46,15 +46,15 @@ export default async function AdminAccountsPage() {
               <tbody>
                 {accounts.map((account) => (
                   <tr key={account.id}>
-                    <td className={styles.mono}>{account.account_number ?? "Pending"}</td>
-                    <td>
+                    <td data-label="Account number" className={styles.mono}>{account.account_number ?? "Pending"}</td>
+                    <td data-label="Customer">
                       <div>{account.full_name}</div>
                       <div className={styles.muted}>{account.email}</div>
                     </td>
-                    <td style={{ textTransform: "capitalize" }}>{account.account_type}</td>
-                    <td>{account.currency}</td>
-                    <td><StatusBadge status={account.status} /></td>
-                    <td>{formatDate(account.created_at)}</td>
+                    <td data-label="Type" style={{ textTransform: "capitalize" }}>{account.account_type}</td>
+                    <td data-label="Currency">{account.currency}</td>
+                    <td data-label="Status"><StatusBadge status={account.status} /></td>
+                    <td data-label="Opened">{formatDate(account.created_at)}</td>
                   </tr>
                 ))}
               </tbody>

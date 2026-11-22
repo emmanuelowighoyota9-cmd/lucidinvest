@@ -58,7 +58,7 @@ export default async function AdminOverviewPage() {
           {newest.length === 0 ? (
             <EmptyState title="No customer records" text="Registered customers will appear here as they sign up." />
           ) : (
-            <div className={styles.tableWrap}>
+            <div className={`${styles.tableWrap} ${styles.tableStacked}`}>
               <table className={styles.table}>
                 <thead>
                   <tr>
@@ -70,12 +70,12 @@ export default async function AdminOverviewPage() {
                 <tbody>
                   {newest.map((customer) => (
                     <tr key={customer.id}>
-                      <td>
+                      <td data-label="Customer">
                         <div>{customer.full_name}</div>
                         <div className={styles.muted}>{customer.email}</div>
                       </td>
-                      <td><StatusBadge status={customer.status} /></td>
-                      <td>{formatDate(customer.created_at)}</td>
+                      <td data-label="Status"><StatusBadge status={customer.status} /></td>
+                      <td data-label="Joined">{formatDate(customer.created_at)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -94,7 +94,7 @@ export default async function AdminOverviewPage() {
               text="Actions recorded in the audit log will be listed here with their actor and timestamp."
             />
           ) : (
-            <div className={styles.tableWrap}>
+            <div className={`${styles.tableWrap} ${styles.tableStacked}`}>
               <table className={styles.table}>
                 <thead>
                   <tr>
@@ -106,12 +106,12 @@ export default async function AdminOverviewPage() {
                 <tbody>
                   {auditEvents.map((event, index) => (
                     <tr key={`${event.created_at}-${index}`}>
-                      <td>
+                      <td data-label="Action">
                         <div>{event.action}</div>
                         <div className={styles.muted}>{event.entity_type}</div>
                       </td>
-                      <td className={styles.muted}>{event.actor_email ?? "system"}</td>
-                      <td>{formatDateTime(event.created_at)}</td>
+                      <td data-label="Actor" className={styles.muted}>{event.actor_email ?? "system"}</td>
+                      <td data-label="When">{formatDateTime(event.created_at)}</td>
                     </tr>
                   ))}
                 </tbody>

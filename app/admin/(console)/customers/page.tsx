@@ -28,7 +28,7 @@ export default async function AdminCustomersPage() {
         {customers.length === 0 ? (
           <EmptyState title="No customer records" text="Registered customers will appear here as they sign up." />
         ) : (
-          <div className={styles.tableWrap}>
+          <div className={`${styles.tableWrap} ${styles.tableStacked}`}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -43,15 +43,15 @@ export default async function AdminCustomersPage() {
               <tbody>
                 {customers.map((customer) => (
                   <tr key={customer.id}>
-                    <td>
+                    <td data-label="Customer">
                       <div>{customer.full_name}</div>
                       <div className={styles.muted}>{customer.email}</div>
                     </td>
-                    <td style={{ textTransform: "capitalize" }}>{customer.role}</td>
-                    <td><StatusBadge status={customer.status} /></td>
-                    <td className={styles.num}>{customer.account_count}</td>
-                    <td>{customer.last_seen_at ? formatDateTime(customer.last_seen_at) : "—"}</td>
-                    <td>{formatDate(customer.created_at)}</td>
+                    <td data-label="Role" style={{ textTransform: "capitalize" }}>{customer.role}</td>
+                    <td data-label="Status"><StatusBadge status={customer.status} /></td>
+                    <td data-label="Accounts" className={styles.num}>{customer.account_count}</td>
+                    <td data-label="Last seen">{customer.last_seen_at ? formatDateTime(customer.last_seen_at) : "—"}</td>
+                    <td data-label="Joined">{formatDate(customer.created_at)}</td>
                   </tr>
                 ))}
               </tbody>

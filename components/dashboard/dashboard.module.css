@@ -263,7 +263,7 @@
 
 .split {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 18px;
   align-items: start;
 }
@@ -560,5 +560,71 @@
 
   .content {
     padding: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .navItem {
+    gap: 8px;
+    padding: 9px 10px;
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .tableStacked {
+    overflow-x: visible;
+  }
+
+  .tableStacked .table thead {
+    display: none;
+  }
+
+  .tableStacked .table tbody,
+  .tableStacked .table tr,
+  .tableStacked .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .tableStacked .table tr {
+    padding: 14px 0;
+    border-bottom: 1px solid #eef3ee;
+  }
+
+  .tableStacked .table tr:first-child {
+    padding-top: 0;
+  }
+
+  .tableStacked .table tr:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .tableStacked .table td {
+    padding: 6px 0;
+    border-bottom: 0;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .tableStacked .table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #7b8a7d;
   }
 }

@@ -31,7 +31,7 @@ export default async function AdminEnquiriesPage() {
             text="Messages submitted through the contact form will appear here."
           />
         ) : (
-          <div className={styles.tableWrap}>
+          <div className={`${styles.tableWrap} ${styles.tableStacked}`}>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -44,16 +44,16 @@ export default async function AdminEnquiriesPage() {
               <tbody>
                 {enquiries.map((enquiry) => (
                   <tr key={enquiry.id}>
-                    <td style={{ whiteSpace: "nowrap" }}>{formatDateTime(enquiry.created_at)}</td>
-                    <td>
+                    <td data-label="Received">{formatDateTime(enquiry.created_at)}</td>
+                    <td data-label="From">
                       <div>{enquiry.name}</div>
                       <div className={styles.muted}>{enquiry.email}</div>
                     </td>
-                    <td>
+                    <td data-label="Message">
                       {enquiry.subject ? <div>{enquiry.subject}</div> : null}
                       <div className={styles.muted} style={{ whiteSpace: "pre-wrap" }}>{enquiry.message}</div>
                     </td>
-                    <td><StatusBadge status={enquiry.status} /></td>
+                    <td data-label="Status"><StatusBadge status={enquiry.status} /></td>
                   </tr>
                 ))}
               </tbody>
