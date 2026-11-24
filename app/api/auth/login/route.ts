@@ -65,8 +65,16 @@ export async function POST(request: NextRequest) {
 
     // A deployment can reach a database that has not recorded the newest
     // additive migrations yet. Upgrade it before running the new query so an
-    // old schema never turns every sign-in into a 500.
-    await ensureDatabaseSchema();
+    // old schema never turns every sign-in into a 500. A failure in a later,
+    // unrelated migration must not block sign-in once the auth columns exist.
+    try {
+      await ensureDatabaseSchema();
+    } catch (error) {
+      console.error(
+        "Schema upgrade before sign-in failed",
+        error instanceof Error ? error.message : "unknown error",
+      );
+    }
 
     const rows = await getSql()`
       SELECT id, email, full_name, role, status, password_hash, two_factor_enabled, two_factor_secret
